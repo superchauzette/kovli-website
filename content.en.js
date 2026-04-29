@@ -11,7 +11,9 @@ export default {
     "arc2": "Arc 2",
     "kovli": "KØVLI",
     "clara": "CLARA LØFT",
-    "listen": "Listen"
+    "listen": "Listen",
+    "open": "Open menu",
+    "close": "Close menu"
   },
   "langSwitch": {
     "fr": "FR",

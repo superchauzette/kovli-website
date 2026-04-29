@@ -77,7 +77,8 @@ summary {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 18px clamp(18px, 5vw, 54px);
+  height: 55px;
+  padding: 0 clamp(18px, 5vw, 54px);
   background: linear-gradient(180deg, rgba(5, 5, 5, 0.78), transparent);
   backdrop-filter: blur(12px);
 }
@@ -107,11 +108,11 @@ summary {
 }
 
 .nav-toggle {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   display: inline-grid;
   place-items: center;
-  gap: 4px;
+  gap: 3px;
   padding: 0;
   border: 1px solid rgba(241, 238, 232, 0.14);
   border-radius: 999px;
@@ -122,7 +123,7 @@ summary {
 
 .nav-toggle span {
   display: block;
-  width: 18px;
+  width: 15px;
   height: 1.5px;
   border-radius: 999px;
   background: currentColor;
@@ -136,7 +137,7 @@ body.nav-open {
 }
 
 body.nav-open .nav-toggle span:nth-child(1) {
-  transform: translateY(5.5px) rotate(45deg);
+  transform: translateY(4.5px) rotate(45deg);
 }
 
 body.nav-open .nav-toggle span:nth-child(2) {
@@ -144,7 +145,7 @@ body.nav-open .nav-toggle span:nth-child(2) {
 }
 
 body.nav-open .nav-toggle span:nth-child(3) {
-  transform: translateY(-5.5px) rotate(-45deg);
+  transform: translateY(-4.5px) rotate(-45deg);
 }
 
 .hero {
@@ -1085,6 +1086,11 @@ body.nav-open .nav-toggle span:nth-child(3) {
 }
 
 @media (min-width: 720px) {
+  .topbar {
+    height: auto;
+    padding: 18px clamp(18px, 5vw, 54px);
+  }
+
   .nav-toggle {
     display: none;
   }
@@ -1247,7 +1253,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
 
 @media (max-width: 719px) {
   .topbar {
-    align-items: start;
+    align-items: center;
   }
 
   .nav-links {

@@ -27,7 +27,7 @@ function spotifyUrl(track) {
 function getPaths(localeKey) {
   return localeKey === "fr"
     ? {
-        styles: "styles.css?v=20260429e",
+        styles: "styles.css?v=20260429f",
         script: "app.js?v=20260429e",
         heroVideo: "assets/videos/hero-memory.mp4",
         heroPoster: "assets/images/night-fragment-02.jpg",
@@ -37,7 +37,7 @@ function getPaths(localeKey) {
         faviconBase: "assets/images",
       }
     : {
-        styles: "../styles.css?v=20260429e",
+        styles: "../styles.css?v=20260429f",
         script: "../app.js?v=20260429e",
         heroVideo: "../assets/videos/hero-memory.mp4",
         heroPoster: "../assets/images/night-fragment-02.jpg",
@@ -229,7 +229,19 @@ function buildPage(localeKey) {
     <div class="site-noise" aria-hidden="true"></div>
     <header class="topbar" aria-label="Primary">
       <a class="wordmark" href="#top" aria-label="KØVLI home">KØVLI</a>
-      <nav class="nav-links" aria-label="Sections">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="${escapeHtml(content.nav.open)}"
+        data-label-open="${escapeHtml(content.nav.open)}"
+        data-label-close="${escapeHtml(content.nav.close)}">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Sections">
         <a href="#story">${escapeHtml(content.nav.story)}</a>
         <a href="#shifted-lives">${escapeHtml(content.nav.arc1)}</a>
         <a href="#je-descends-ici">${escapeHtml(content.nav.arc2)}</a>

@@ -23,13 +23,25 @@
     <meta name="twitter:image" content="https://kov.li/assets/images/preview.jpg">
     <title>KØVLI</title>
     <link rel="preload" href="../assets/images/night-fragment-02.jpg" as="image" />
-    <link rel="stylesheet" href="../styles.css?v=20260429e" />
+    <link rel="stylesheet" href="../styles.css?v=20260429f" />
   </head>
   <body>
     <div class="site-noise" aria-hidden="true"></div>
     <header class="topbar" aria-label="Primary">
       <a class="wordmark" href="#top" aria-label="KØVLI home">KØVLI</a>
-      <nav class="nav-links" aria-label="Sections">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open menu"
+        data-label-open="Open menu"
+        data-label-close="Close menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Sections">
         <a href="#story">Story</a>
         <a href="#shifted-lives">Arc 1</a>
         <a href="#je-descends-ici">Arc 2</a>
