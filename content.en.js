@@ -93,7 +93,8 @@ export default {
       "playlist": "Lost in KØVLI",
       "instagram": "Instagram",
       "tiktok": "TikTok",
-      "linktree": "Linktree"
+      "linktree": "Linktree",
+      "youtube": "YouTube Music"
     }
   },
   "footer": {
@@ -120,6 +121,7 @@ export default {
     "deezer": "https://www.deezer.com/en/playlist/15163479523?host=6814607683&utm_campaign=system-message&utm_source=user_sharing&utm_content=playlist-15163479523&deferredFl=1&universal_link=1",
     "instagram": "https://www.instagram.com/kovliho",
     "tidal": "https://tidal.com/artist/77288896",
+    "youtube": "https://music.youtube.com/channel/UCEdNa1Smv8vfBqp0kM7e6DQ",
     "tiktok": "https://tiktok.com/@kovli1987"
   },
   "arcA": [

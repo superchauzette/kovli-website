@@ -124,11 +124,13 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
             <a class="spotify-fallback" href="${spotifyUrl(track)}" target="_blank" rel="noreferrer">${escapeHtml(content.trackUi.spotifyFallback)}</a>
           </div>
 
-          ${renderLyricsPanel(track, content)}
         </div>
 
         ${visual ? `<div class="track-visual-wrap">${visual}</div>` : imageVisual}
       </div>
+
+
+      ${renderLyricsPanel(track, content)}
 
     </article>
   `;
@@ -164,11 +166,8 @@ function renderSupportLinks(content) {
     [content.support.linksUi.appleMusic, content.links.appleMusic],
     [content.support.linksUi.deezer, content.links.deezer],
     [content.support.linksUi.tidal, content.links.tidal],
-    [content.support.linksUi.spotify, content.links.spotify],
-    [content.support.linksUi.playlist, content.links.playlist],
-    [content.support.linksUi.instagram, content.links.instagram],
-    [content.support.linksUi.tiktok, content.links.tiktok],
-    [content.support.linksUi.linktree, content.links.linktree],
+    [content.support.linksUi.youtube, content.links.youtube],
+
   ].filter(([, href]) => Boolean(href));
 
   return links
