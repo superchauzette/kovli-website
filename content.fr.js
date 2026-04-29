@@ -2,7 +2,7 @@ export default {
   "meta": {
     "lang": "fr",
     "title": "KØVLI",
-    "description": "KØVLI. Les nuits de Paris, du début à la fin. Entre connexion et distance.",
+    "description": "KØVLI. Les nuits Parisiennes, start to finish. Entre connexion et distance.",
     "ogLocale": "fr_FR"
   },
   "nav": {
@@ -22,7 +22,7 @@ export default {
   "hero": {
     "eyebrow": "Paris / après les heures",
     "subtitle": [
-      "Les nuits de Paris, du début à la fin.",
+      "Les nuits Parisiennes, start to finish.",
       "Entre connexion et distance.",
       "Entre dans l'histoire."
     ],
