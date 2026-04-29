@@ -576,6 +576,8 @@ body.nav-open .nav-toggle span:nth-child(3) {
   text-decoration: none;
 }
 
+
+
 .spotify-frame {
   display: block;
   width: 100%;
@@ -611,6 +613,10 @@ body.nav-open .nav-toggle span:nth-child(3) {
     border-color 220ms ease,
     background 220ms ease,
     transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.spotify-fallback {
+  margin-top: 10px;
 }
 
 .spotify-fallback:hover,
@@ -1304,4 +1310,12 @@ body.nav-open .nav-toggle span:nth-child(3) {
   .support-links {
     grid-template-columns: 1fr;
   }
+}
+
+.track-visual-wrap {
+  margin-top: 22px;
+}
+
+.track-spotify .lyrics-panel {
+  margin-top: 18px;
 }

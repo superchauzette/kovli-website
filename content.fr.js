@@ -271,7 +271,7 @@ export default {
   "arcB": [
     {
       "title": "Heureux qui comme toi",
-      "description": "Certaines personnes ne traversent pas seulement ta vie. Elles restent... dans ce que tu deviens.",
+      "description": "Certaines personnes ne croisent pas seulement ton chemin. Elles restent... dans ce que tu deviens.",
       "spotify": {
         "type": "album",
         "id": "2cNJ0ipBXO60GT3M1olqOt"

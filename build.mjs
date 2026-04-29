@@ -103,6 +103,7 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
         ${features}
         <p class="track-description">${escapeHtml(track.description)}</p>
       </div>
+
       <div class="track-media-row">
         <div class="track-spotify">
           <div class="spotify-player">
@@ -122,10 +123,13 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
               referrerpolicy="strict-origin-when-cross-origin"></iframe>
             <a class="spotify-fallback" href="${spotifyUrl(track)}" target="_blank" rel="noreferrer">${escapeHtml(content.trackUi.spotifyFallback)}</a>
           </div>
+
+          ${renderLyricsPanel(track, content)}
         </div>
+
         ${visual ? `<div class="track-visual-wrap">${visual}</div>` : imageVisual}
       </div>
-      ${renderLyricsPanel(track, content)}
+
     </article>
   `;
 }
