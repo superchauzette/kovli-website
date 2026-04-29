@@ -24,7 +24,7 @@ export default {
     "subtitle": [
       "Les nuits Parisiennes, start to finish.",
       "Entre connexion et distance.",
-      "Entre dans l'histoire."
+      "L’histoire commence ici."
     ],
     "listen": "Écouter",
     "explore": "Explorer les arcs",
