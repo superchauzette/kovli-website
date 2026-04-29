@@ -20,7 +20,7 @@ export default {
     "en": "EN"
   },
   "hero": {
-    "eyebrow": "Paris / après les heures",
+    "eyebrow": "Paris / after hours",
     "subtitle": [
       "Les nuits Parisiennes, start to finish.",
       "Entre connexion et distance.",
@@ -29,33 +29,33 @@ export default {
     "listen": "Écouter",
     "explore": "Explorer les arcs",
     "instagram": "Suivre sur Instagram",
-    "scroll": "Descendre vers l'histoire"
+    "scroll": "Scroller"
   },
   "story": {
     "kicker": "L'histoire",
-    "title": "KØVLI n'est pas seulement de la musique.<br />C'est aussi ce qui reste...",
+    "title": "KØVLI ce n'est pas juste de la musique.<br />C'est ce qui reste...",
     "paragraphs": [
       "Un endroit où les nuits s'étirent plus longtemps qu'elles ne devraient, où les inconnus deviennent quelque chose de plus, ou plus rien du tout.",
-      "Né entre les lumières qui tombent, les corps qui dérivent et les descentes silencieuses, KØVLI capte ce qui se joue entre la connexion et la disparition.",
-      "Le projet se déploie actuellement en deux arcs."
+      "Né entre lumières qui s’éteignent, corps qui dérivent et descentes silencieuses, KØVLI capture ce moment fragile entre connexion et disparition.",
+      "Le projet se déploie aujourd'hui en deux arcs."
     ]
   },
   "arcs": {
     "arc1": {
       "kicker": "Arc 1",
       "title": "SHIFTED LIVES",
-      "intro": "L'arc 1 explore la nuit. La tension, le chaos, les corps, les amitiés. Des moments qui semblent infinis mais disparaissent au matin."
+      "intro": "L'arc 1 explore la nightlife. La tension, le chaos, les corps, les amitiés. Des moments qui semblent infinis mais disparaissent au matin."
     },
     "arc2": {
       "kicker": "Arc 2",
       "title": "JE DESCENDS ICI",
       "intro": "L'arc 2 est plus personnel. Plus intime. Moins centré sur la foule, plus sur ce qu'il reste après.",
-      "developmentNote": "Cet arc suit une trajectoire plus silencieuse. Des fragments de mémoire, d'attachement, et ce qui demeure quand tout le reste s'efface.\nL'ordre continue d'évoluer, mais un mouvement est déjà là.\n\nDe ce qui a été partagé,\nà ce qui a été perdu,\nà ce qui tient encore.\n\nEt enfin — ce qui revient."
+      "developmentNote": "Cet arc suit une trajectoire plus silencieuse. Des fragments de mémoire, d'attachement, et ce qui demeure quand tout le reste s'efface.\nL'ordre continue d'évoluer, mais un mouvement se dessine déjà.\n\nDe ce qui a été partagé,\nà ce qui a été perdu,\nà ce qui tient encore.\n\nEt enfin... ce qui revient."
     }
   },
   "diaryUi": {
     "kicker": "KØVLI",
-    "title": "Fragments.<br />Preuves que la nuit a existé.<br />Avant qu'elle ne s'efface.",
+    "title": "Fragments.<br />Preuves que la nuit a existé.<br />Avant qu'elle ne disparaisse.",
     "follow": "Suivre KØVLI sur Instagram",
     "more": "Voir plus",
     "less": "Voir moins",
@@ -63,26 +63,26 @@ export default {
   },
   "clara": {
     "kicker": "Clara LØFT",
-    "title": "Clara LØFT ne se fond pas dans le décor. Elle change la température.",
+    "title": "Clara LØFT ne se fond pas dans le décor. Elle change la tonalité.",
     "paragraphs": [
-      "Latina-américaine, instinctive, libre sans demander pardon. Elle traverse trois langues comme s'il n'y en avait qu'une. Elle change sans prévenir, sans demander.",
-      "Là où KØVLI dérive, elle met le feu. Elle apporte de la chaleur, du mouvement, quelque chose d'un peu incontrôlable. Il n'y a pas de version figée d'elle. Seulement ce qui arrive quand elle entre dans la pièce.",
-      "Ensemble, iels créent la tension, le relâchement, et tout ce qui se trouve entre les deux."
+      "Latina-américaine. Instinctive. Libre. sans concession. Elle navigue entre trois langues comme si c'était une seule. Sans prévenir. Sans demander.",
+      "Là où KØVLI dérive, elle met le feu. Elle apporte de la chaleur, du mouvement, quelque chose d'instable. Il n'existe pas de version figée d'elle. Seulement ce qui se passe quand elle arrive.",
+      "Ensemble, ils créent tension, relâchement... et tout ce qu'il y a entre les deux."
     ],
-    "featureEmpty": "Les feats apparaîtront quand l'histoire le demandera.",
+    "featureEmpty": "Les feats apparaîtront quand l'histoire l'exigera.",
     "galleryAltPrefix": "Clara LØFT",
     "openImage": "Ouvrir l'image",
     "portraitFallback": "Portrait de Clara LØFT"
   },
   "inBetween": [
-    "La mémoire garde la pièce allumée.",
+    "La mémoire garde la pièce.",
     "L'absence change de forme.",
     "Quelqu'un part. Quelque chose reste.",
-    "Au matin, le même corps porte un autre nom."
+    "Et au matin, ce même corps porte un autre nom."
   ],
   "support": {
     "kicker": "Soutenir le projet",
-    "title": "Si ça résonne, partage-le.<br />Chaque écoute compte.",
+    "title": "Si ça résonne en toi, partage.<br />Chaque écoute compte.",
     "playlistTitle": "Playlist Spotify : Lost in KØVLI",
     "fallback": "Écouter Lost in KØVLI sur Spotify",
     "linksUi": {
@@ -125,7 +125,7 @@ export default {
   "arcA": [
     {
       "title": "Too Many Nights",
-      "description": "La nuit n'a pas encore commencé, mais elle est déjà partout. Les groupes s'enflamment, les plans se croisent, personne n'est d'accord. Trop d'options, trop de directions. La nuit commence dans la confusion.",
+      "description": "La nuit n'a pas encore commencé, mais elle est déjà partout. Les groupes s'enflamment, les projets s'empilent, personne n'est d'accord. Trop d'options, trop de directions. La nuit commence dans la confusion.",
       "spotify": {
         "type": "album",
         "id": "6GVLOnqEaaSCqA4hLEXxrn"
@@ -136,7 +136,7 @@ export default {
     },
     {
       "title": "Before the Fire",
-      "description": "Une pièce. Une cuisine. Les corps montent doucement en température. On se retrouve avant de sortir. Verres bon marché, rires trop forts, regards déjà ailleurs. Quelque chose est sur le point d'arriver, mais on reste encore un peu là.",
+      "description": "Un appart. Une cuisine. Les corps se mettent en chauffe. On se retrouve avant de sortir. Verres cheap, rires forts, regards déjà ailleurs. Quelque chose s'apprête à arriver... mais on reste encore un peu.",
       "spotify": {
         "type": "album",
         "id": "1bshnk8qrjivdEBpaCSWBk"
@@ -147,7 +147,7 @@ export default {
     },
     {
       "title": "Sous Effet",
-      "description": "Le basculement est discret. Puis il ne l'est plus. Les lumières s'étirent, le temps se ramollit, les sensations se brouillent. Quelque chose bouge sous la surface. On le ressent avant de le voir.",
+      "description": "Le shift est subtil. Puis il ne l'est plus. Les lumières s'étirent, le temps ralentit, les sensations se brouillent. Quelque chose bouge sous la surface. Tu le ressens plus que tu ne le vois.",
       "spotify": {
         "type": "album",
         "id": "3vK8wG5W60auS8sZNZ0m1V"
@@ -158,7 +158,7 @@ export default {
     },
     {
       "title": "Lost Together",
-      "description": "Le groupe devient un seul corps. On rit, on avance, on se tient dans le bruit. Personne n'est laissé derrière. Dans le chaos, on trouve une forme d'équilibre.",
+      "description": "Le groupe ne devient plus qu'un. On rit, on bouge, on se tient dans le bruit. Personne n'est laissé derrière. Dans le chaos, on trouve un étrange équilibre.",
       "spotify": {
         "type": "album",
         "id": "1MCw3awpfPeRCoDGa7JOrD"
@@ -169,7 +169,7 @@ export default {
     },
     {
       "title": "Where the Poto At?",
-      "description": "Et d'un coup, quelqu'un a disparu. La foule s'épaissit, les visages s'effacent. Tu appelles, tu cherches, tu crois reconnaître quelqu'un, mais ce n'est jamais la bonne personne. La nuit s'élargit.",
+      "description": "Et soudain, toujours ce pote qui disparaît. La foule se densifie, les visages s'effacent. Tu l'appelles, tu le cherches, tu crois le reconnaître, mais ce n'est jamais lui.",
       "spotify": {
         "type": "album",
         "id": "6oMNaAVmms5rhcCTOjqdQT"
@@ -183,7 +183,7 @@ export default {
     },
     {
       "title": "Ecstatic Touch",
-      "description": "Les inconnus deviennent magnétiques. Pas de nom, pas de passé. Juste la proximité, la tension, la peau, les gestes interrompus. Une connexion qui n'existe que dans cet instant.",
+      "description": "Les inconnus s'aimantent entre eux. Pas de nom, pas d'histoire. Juste la proximité, la tension, la peau. Une connexion qui n'existe que dans cet instant.",
       "spotify": {
         "type": "album",
         "id": "0pjYiVdpTHZSVBaorhtNdK"
@@ -194,7 +194,7 @@ export default {
     },
     {
       "title": "Midnight Skin",
-      "description": "La nuit devient intime. Tout ralentit. Plus proche, plus calme. Des corps, du souffle, des fragments de quelque chose de vrai. Pas de témoins, pas de définition.",
+      "description": "La nuit devient intime. Tout ralentit. Encore plus proche, plus silencieux. Des corps, du souffle, des fragments de quelque chose de vrai. Sans témoins. Sans définition.",
       "spotify": {
         "type": "album",
         "id": "1OMGCJtLmu5w124i4wFg0K"
@@ -205,7 +205,7 @@ export default {
     },
     {
       "title": "After Dawn",
-      "description": "Le monde s'adoucit. On part. Ou peut-être qu'on dérive. La ville est plus calme maintenant. Il y a moins de mots. Ce qui s'est passé semble à la fois proche et lointain.",
+      "description": "Le monde s'adoucit. On part. Ou peut-être qu'on dérive. La ville est plus calme. Moins de mots. Ce qui s'est passé semble à la fois proche... et déjà lointain.",
       "spotify": {
         "type": "album",
         "id": "7i3ptlpaOeNu4faeYX74kt"
@@ -216,7 +216,7 @@ export default {
     },
     {
       "title": "Shifted Lives",
-      "description": "Deux réalités se croisent sans se toucher. Au retour, dans un train, dans un regard. Des vies différentes, le même silence. Quelque chose se déplace, même si rien n'est dit.",
+      "description": "Deux réalités se croisent sans se toucher. Au retour, dans un train, dans un regard. Des vies différentes, un même silence. Quelque chose change, même sans un mot.",
       "spotify": {
         "type": "album",
         "id": "6gTQPUuujTFJry5C0h4L10"
@@ -227,7 +227,7 @@ export default {
     },
     {
       "title": "Back To Motion",
-      "description": "Le matin frappe. Le corps est lent, l'esprit est ailleurs. Mais le monde continue d'avancer. Tu te redresses, tu gardes la nuit en toi, et tu repars.",
+      "description": "La semaine reprend, mais le corps est lent, l'esprit est ailleurs. Mais le monde doit avancer. Tu te redresses, tu gardes les nuits en toi, et tu repars.",
       "spotify": {
         "type": "album",
         "id": "5VUDFd85e1eL1O4GRzEI3Y"
@@ -241,7 +241,7 @@ export default {
     },
     {
       "title": "We Said One Drink…",
-      "description": "Tu avais dit que tu resterais chez toi. Tu ne l'as pas fait. Ça commence petit. Juste un verre. Puis un autre. Le même schéma, la même spirale. La nuit se relance d'elle-même.",
+      "description": "Tu avais dit que tu resterais chez toi. Mais non ! D'abord un verre. Puis un autre. Le même schéma, la même spirale. La nuit se relance d'elle-même, en pleine semaine.",
       "spotify": {
         "type": "album",
         "id": "5OIstNkizi6UjtrrfWF386"
@@ -255,7 +255,7 @@ export default {
     },
     {
       "title": "En Accéléré",
-      "description": "Le lien se casse dans la vitesse. Tu parles lentement. L'autre écoute trop vite. Les messages, les vocaux, les sentiments... tout est zappé. Plus rien n'atterrit vraiment.",
+      "description": "Le lien se perd dans la vitesse. Tu prends le temps mais l'autre t'écoute trop vite. Messages, vocaux, sentiments... tout est skippé. Quelque chose ne passe plus...",
       "spotify": {
         "type": "album",
         "id": "1mr4cfAKZ8M70jhtVnRpKq"
@@ -271,7 +271,7 @@ export default {
   "arcB": [
     {
       "title": "Heureux qui comme toi",
-      "description": "Une présence qui a tout façonné sans bruit. Certaines personnes ne traversent pas seulement ta vie. Elles restent dans ce que tu deviens.",
+      "description": "Certaines personnes ne traversent pas seulement ta vie. Elles restent... dans ce que tu deviens.",
       "spotify": {
         "type": "album",
         "id": "2cNJ0ipBXO60GT3M1olqOt"
@@ -282,7 +282,7 @@ export default {
     },
     {
       "title": "4 ans de toi",
-      "description": "Ça a commencé comme presque rien. Puis c'est resté. Le temps s'est plié autour de ça, sans demander la permission.",
+      "description": "Ça commence comme presque rien. Puis ça s'installe. Le temps se plie autour, sans crier gare...",
       "spotify": {
         "type": "album",
         "id": "5pQ6YWdhnxUmtZVnWoWuQy"
@@ -293,7 +293,7 @@ export default {
     },
     {
       "title": "Je descends ici",
-      "description": "Toujours le même trajet, encore et encore. Jusqu'au jour où il n'y a plus aucune raison d'aller plus loin.",
+      "description": "Ce même trajet, encore et encore. Jusqu'au jour où... il n'y a hélas plus de raison d'aller plus loin.",
       "spotify": {
         "type": "album",
         "id": "3PEsHHzVatkowJGRfA60PX"
@@ -304,7 +304,7 @@ export default {
     },
     {
       "title": "Force",
-      "description": "Certain·es ne s'arrêtent pas. Iels tiennent. Iels luttent. Iels continuent. Ce morceau est pour elles et eux.",
+      "description": "Certains ne lâchent pas. Ils luttent. Ils continuent d'avancer même dans l'adversité. Ce morceau est pour eux.",
       "spotify": {
         "type": "album",
         "id": "6ovbTrezirN9yyYzW7wzHa"
@@ -317,11 +317,11 @@ export default {
   "diary": [
     {
       "image": "assets/images/kovli-02.jpg",
-      "caption": "L'aube n'a demandé la permission à personne."
+      "caption": "L'aube n'a demandé aucune permission."
     },
     {
       "image": "assets/images/kovli-03.jpg",
-      "caption": "Un couloir de fumée. Personne ne dit encore au revoir."
+      "caption": "Un couloir de fumée. Personne ne dit au revoir encore."
     },
     {
       "image": "assets/images/kovli-07.jpg",
@@ -341,27 +341,27 @@ export default {
     },
     {
       "image": "assets/images/clara-kovli-caveau.jpg",
-      "caption": "De la chaleur au sous-sol. Quelqu'un se souvient du refrain."
+      "caption": "Chaleur au sous-sol. Quelqu'un se souvient du refrain."
     },
     {
       "image": "assets/images/diary-proof-crop.jpg",
-      "caption": "La nuit s'assoit avec moi."
+      "caption": "La nuit reste avec moi."
     },
     {
       "image": "assets/images/clara-kovli-studio-work.jpg",
-      "caption": "Avant que le son ne tienne."
+      "caption": "Avant que le son l'emporte."
     },
     {
       "image": "assets/images/clara-kovli-studio.jpg",
-      "caption": "Deux voix qui trouvent la même pulsation."
+      "caption": "Deux voix qui trouvent le même rythme."
     },
     {
       "image": "assets/images/clara-kovli-paris.jpg",
-      "caption": "La rue garde son propre tempo."
+      "caption": "La rue suit son propre tempo."
     },
     {
       "image": "assets/images/kovli-street.jpg",
-      "caption": "Passer devant hier."
+      "caption": "Marcher au-delà d'hier."
     }
   ],
   "claraGallery": [
