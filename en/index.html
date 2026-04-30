@@ -49,14 +49,14 @@
         <span></span>
       </button>
       <nav id="site-nav" class="nav-links" aria-label="Sections">
-        <a href="#story">Story</a>
-        <a href="#shifted-lives">Arc 1</a>
-        <a href="#je-descends-ici">Arc 2</a>
-        <a href="#diary">KØVLI</a>
-        <a href="#clara">CLARA LØFT</a>
-        <a href="#support">Listen</a>
-        <a href="../" hreflang="fr" lang="fr">FR</a>
-        <a href="./" hreflang="en" lang="en" aria-current="page">EN</a>
+        <a class="nav-link nav-link-section" href="#story">Story</a>
+        <a class="nav-link nav-link-section" href="#shifted-lives">Arc 1</a>
+        <a class="nav-link nav-link-section" href="#je-descends-ici">Arc 2</a>
+        <a class="nav-link nav-link-section" href="#diary">KØVLI</a>
+        <a class="nav-link nav-link-section" href="#clara">CLARA LØFT</a>
+        <a class="nav-link nav-link-section" href="#support">Listen</a>
+        <a class="nav-link nav-link-language" href="../" hreflang="fr" lang="fr">FR</a>
+        <a class="nav-link nav-link-language" href="./" hreflang="en" lang="en" aria-current="page">EN</a>
       </nav>
     </header>
 
@@ -148,9 +148,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/too-many-nights.mp4"
-        data-poster="../assets/images/covers/too-many-nights.jpg"
+        data-poster="../assets/images/video-stills/too-many-nights.png"
         aria-label="Load visual for Too Many Nights">
-        <img class="track-visual-poster" src="../assets/images/covers/too-many-nights.jpg" loading="lazy" alt="Too Many Nights cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/too-many-nights.png" loading="lazy" alt="Too Many Nights video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -201,9 +201,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/before-the-fire.mp4"
-        data-poster="../assets/images/covers/before-the-fire.jpg"
+        data-poster="../assets/images/video-stills/before-the-fire.png"
         aria-label="Load visual for Before the Fire">
-        <img class="track-visual-poster" src="../assets/images/covers/before-the-fire.jpg" loading="lazy" alt="Before the Fire cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/before-the-fire.png" loading="lazy" alt="Before the Fire video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -254,9 +254,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/sous-effet.mp4"
-        data-poster="../assets/images/covers/sous-effet.jpg"
+        data-poster="../assets/images/video-stills/sous-effet.png"
         aria-label="Load visual for Sous Effet">
-        <img class="track-visual-poster" src="../assets/images/covers/sous-effet.jpg" loading="lazy" alt="Sous Effet cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/sous-effet.png" loading="lazy" alt="Sous Effet video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -307,9 +307,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/lost-together.mp4"
-        data-poster="../assets/images/covers/lost-together.jpg"
+        data-poster="../assets/images/video-stills/lost-together.png"
         aria-label="Load visual for Lost Together">
-        <img class="track-visual-poster" src="../assets/images/covers/lost-together.jpg" loading="lazy" alt="Lost Together cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/lost-together.png" loading="lazy" alt="Lost Together video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -360,9 +360,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/where-the-poto-at.mp4"
-        data-poster="../assets/images/covers/where-the-poto-at.jpg"
+        data-poster="../assets/images/video-stills/where-the-poto-at.jpg"
         aria-label="Load visual for Where the Poto At?">
-        <img class="track-visual-poster" src="../assets/images/covers/where-the-poto-at.jpg" loading="lazy" alt="Where the Poto At? cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/where-the-poto-at.jpg" loading="lazy" alt="Where the Poto At? video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -413,9 +413,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/ecstatic-touch.mp4"
-        data-poster="../assets/images/covers/ecstatic-touch.jpg"
+        data-poster="../assets/images/video-stills/ecstatic-touch.png"
         aria-label="Load visual for Ecstatic Touch">
-        <img class="track-visual-poster" src="../assets/images/covers/ecstatic-touch.jpg" loading="lazy" alt="Ecstatic Touch cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/ecstatic-touch.png" loading="lazy" alt="Ecstatic Touch video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -461,11 +461,17 @@
 
         </div>
 
-        
-      <div class="track-visual-wrap">
-        <img class="track-visual-poster track-visual-image" src="../assets/images/kovli-10.jpg" loading="lazy" alt="Midnight Skin still" />
-      </div>
-    
+        <div class="track-visual-wrap">
+      <button
+        class="track-visual-trigger"
+        type="button"
+        data-video="../assets/videos/midnight-skin.mp4"
+        data-poster="../assets/images/video-stills/midnight-skin.jpg"
+        aria-label="Load visual for Midnight Skin">
+        <img class="track-visual-poster" src="../assets/images/video-stills/midnight-skin.jpg" loading="lazy" alt="Midnight Skin video preview" />
+        <span class="track-visual-badge">Load visual</span>
+      </button>
+    </div>
       </div>
 
 
@@ -513,9 +519,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/after-dawn.mp4"
-        data-poster="../assets/images/covers/after-dawn.jpg"
+        data-poster="../assets/images/video-stills/after-dawn.png"
         aria-label="Load visual for After Dawn">
-        <img class="track-visual-poster" src="../assets/images/covers/after-dawn.jpg" loading="lazy" alt="After Dawn cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/after-dawn.png" loading="lazy" alt="After Dawn video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -566,9 +572,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/shifted-lives.mp4"
-        data-poster="../assets/images/covers/shifted-lives.jpg"
+        data-poster="../assets/images/video-stills/shifted-lives.png"
         aria-label="Load visual for Shifted Lives">
-        <img class="track-visual-poster" src="../assets/images/covers/shifted-lives.jpg" loading="lazy" alt="Shifted Lives cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/shifted-lives.png" loading="lazy" alt="Shifted Lives video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -619,9 +625,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/back-to-motion.mp4"
-        data-poster="../assets/images/clara-kovli-studio.jpg"
+        data-poster="../assets/images/video-stills/back-to-motion.png"
         aria-label="Load visual for Back To Motion">
-        <img class="track-visual-poster" src="../assets/images/clara-kovli-studio.jpg" loading="lazy" alt="Back To Motion cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/back-to-motion.png" loading="lazy" alt="Back To Motion video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -672,9 +678,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/we-said-one-drink.mp4"
-        data-poster="../assets/images/covers/we-said-one-drink.jpg"
+        data-poster="../assets/images/video-stills/we-said-one-drink.png"
         aria-label="Load visual for We Said One Drink…">
-        <img class="track-visual-poster" src="../assets/images/covers/we-said-one-drink.jpg" loading="lazy" alt="We Said One Drink… cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/we-said-one-drink.png" loading="lazy" alt="We Said One Drink… video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -725,9 +731,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/en-accelere.mp4"
-        data-poster="../assets/images/covers/en-accelere.jpg"
+        data-poster="../assets/images/video-stills/en-accelere.png"
         aria-label="Load visual for En Accéléré">
-        <img class="track-visual-poster" src="../assets/images/covers/en-accelere.jpg" loading="lazy" alt="En Accéléré cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/en-accelere.png" loading="lazy" alt="En Accéléré video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -790,9 +796,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/heureux-qui-comme-toi.mp4"
-        data-poster="../assets/images/covers/heureux-qui-comme-toi.jpg"
+        data-poster="../assets/images/video-stills/heureux-qui-comme-toi.png"
         aria-label="Load visual for Heureux qui comme toi">
-        <img class="track-visual-poster" src="../assets/images/covers/heureux-qui-comme-toi.jpg" loading="lazy" alt="Heureux qui comme toi cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/heureux-qui-comme-toi.png" loading="lazy" alt="Heureux qui comme toi video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -843,9 +849,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/4-ans-de-toi.mp4"
-        data-poster="../assets/images/covers/4-ans-de-toi.jpg"
+        data-poster="../assets/images/video-stills/4-ans-de-toi.png"
         aria-label="Load visual for 4 ans de toi">
-        <img class="track-visual-poster" src="../assets/images/covers/4-ans-de-toi.jpg" loading="lazy" alt="4 ans de toi cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/4-ans-de-toi.png" loading="lazy" alt="4 ans de toi video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -896,9 +902,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/je-descends-ici.mp4"
-        data-poster="../assets/images/covers/je-descends-ici.jpg"
+        data-poster="../assets/images/video-stills/je-descends-ici.png"
         aria-label="Load visual for Je descends ici">
-        <img class="track-visual-poster" src="../assets/images/covers/je-descends-ici.jpg" loading="lazy" alt="Je descends ici cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/je-descends-ici.png" loading="lazy" alt="Je descends ici video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>
@@ -949,9 +955,9 @@
         class="track-visual-trigger"
         type="button"
         data-video="../assets/videos/force.mp4"
-        data-poster="../assets/images/clara-kovli-paris.jpg"
+        data-poster="../assets/images/video-stills/force.png"
         aria-label="Load visual for Force">
-        <img class="track-visual-poster" src="../assets/images/clara-kovli-paris.jpg" loading="lazy" alt="Force cover art" />
+        <img class="track-visual-poster" src="../assets/images/video-stills/force.png" loading="lazy" alt="Force video preview" />
         <span class="track-visual-badge">Load visual</span>
       </button>
     </div>

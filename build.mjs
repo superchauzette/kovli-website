@@ -72,6 +72,7 @@ function renderLyricsPanel(track, content) {
 }
 
 function renderTrackCard(track, index, arcName, localeKey, content) {
+  const staticVisualLabel = localeKey === "fr" ? "Visuel fixe" : "Still image";
   const features = track.features?.length
     ? `<p class="track-features">${escapeHtml(content.trackUi.with)} ${escapeHtml(track.features.join(", "))}</p>`
     : "";
@@ -92,6 +93,7 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
     ? `
       <div class="track-visual-wrap">
         <img class="track-visual-poster track-visual-image" src="${localeAssetPath(localeKey, track.image)}" loading="lazy" alt="${escapeHtml(`${track.title} still`)}" />
+        <span class="track-visual-badge track-visual-badge-static">${escapeHtml(staticVisualLabel)}</span>
       </div>
     `
     : "";
@@ -253,14 +255,14 @@ function buildPage(localeKey) {
         <span></span>
       </button>
       <nav id="site-nav" class="nav-links" aria-label="Sections">
-        <a href="#story">${escapeHtml(content.nav.story)}</a>
-        <a href="#shifted-lives">${escapeHtml(content.nav.arc1)}</a>
-        <a href="#je-descends-ici">${escapeHtml(content.nav.arc2)}</a>
-        <a href="#diary">${escapeHtml(content.nav.kovli)}</a>
-        <a href="#clara">${escapeHtml(content.nav.clara)}</a>
-        <a href="#support">${escapeHtml(content.nav.listen)}</a>
-        <a href="${paths.languageFr}" hreflang="fr" lang="fr"${localeKey === "fr" ? ' aria-current="page"' : ""}>${content.langSwitch.fr}</a>
-        <a href="${paths.languageEn}" hreflang="en" lang="en"${localeKey === "en" ? ' aria-current="page"' : ""}>${content.langSwitch.en}</a>
+        <a class="nav-link nav-link-section" href="#story">${escapeHtml(content.nav.story)}</a>
+        <a class="nav-link nav-link-section" href="#shifted-lives">${escapeHtml(content.nav.arc1)}</a>
+        <a class="nav-link nav-link-section" href="#je-descends-ici">${escapeHtml(content.nav.arc2)}</a>
+        <a class="nav-link nav-link-section" href="#diary">${escapeHtml(content.nav.kovli)}</a>
+        <a class="nav-link nav-link-section" href="#clara">${escapeHtml(content.nav.clara)}</a>
+        <a class="nav-link nav-link-section" href="#support">${escapeHtml(content.nav.listen)}</a>
+        <a class="nav-link nav-link-language" href="${paths.languageFr}" hreflang="fr" lang="fr"${localeKey === "fr" ? ' aria-current="page"' : ""}>${content.langSwitch.fr}</a>
+        <a class="nav-link nav-link-language" href="${paths.languageEn}" hreflang="en" lang="en"${localeKey === "en" ? ' aria-current="page"' : ""}>${content.langSwitch.en}</a>
       </nav>
     </header>
 

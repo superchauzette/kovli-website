@@ -198,6 +198,44 @@ const bindLanguagePreference = () => {
   });
 };
 
+const bindSectionNavHighlight = () => {
+  const navLinks = Array.from(document.querySelectorAll(".nav-link-section[href^='#']"));
+  if (!navLinks.length) return;
+
+  const sections = navLinks
+    .map((link) => {
+      const id = link.getAttribute("href")?.slice(1);
+      const section = id ? document.getElementById(id) : null;
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const setActive = (activeLink) => {
+    sections.forEach(({ link }) => {
+      if (link === activeLink) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  const updateActive = () => {
+    const headerOffset = document.querySelector(".topbar")?.offsetHeight ?? 0;
+    const marker = headerOffset + window.innerHeight * 0.24;
+    let activeLink = null;
+
+    sections.forEach(({ link, section }) => {
+      if (section.getBoundingClientRect().top <= marker) activeLink = link;
+    });
+
+    setActive(activeLink);
+  };
+
+  window.addEventListener("scroll", updateActive, { passive: true });
+  window.addEventListener("resize", updateActive);
+  updateActive();
+};
+
 const bindParallax = () => {
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const shouldReduceMotion =
@@ -271,5 +309,6 @@ bindDiaryMore();
 bindMobileNav();
 bindClaraLightbox();
 bindLanguagePreference();
+bindSectionNavHighlight();
 bindParallax();
 bindHeroMedia();
