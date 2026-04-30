@@ -5,6 +5,7 @@ import enContent from "./content.en.js";
 
 const rootDir = process.cwd();
 const siteUrl = "https://kov.li";
+const googleAnalyticsId = "G-KZLZLSWSVS";
 const contentByLocale = { fr: frContent, en: enContent };
 
 function escapeHtml(value) {
@@ -225,6 +226,13 @@ function buildPage(localeKey) {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="${paths.preview}">
     <title>${escapeHtml(content.meta.title)}</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${googleAnalyticsId}');
+    </script>
     <link rel="preload" href="${paths.heroPoster}" as="image" />
     <link rel="stylesheet" href="${paths.styles}" />
   </head>
