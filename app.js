@@ -50,6 +50,13 @@ const bindExclusiveSpotifyPlayback = () => {
     });
   };
 
+  embeds.forEach((iframe) => {
+    const handleIntent = () => stopOtherEmbeds(iframe);
+    iframe.addEventListener("mouseenter", handleIntent, { passive: true });
+    iframe.addEventListener("touchstart", handleIntent, { passive: true });
+    iframe.addEventListener("focus", handleIntent);
+  });
+
   window.addEventListener("blur", () => {
     const activeIframe = document.activeElement;
     if (activeIframe instanceof HTMLIFrameElement && embeds.includes(activeIframe)) {
