@@ -152,6 +152,69 @@ const bindMobileNav = () => {
   });
 };
 
+const bindSectionNavState = () => {
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  if (!links.length) return;
+
+  const pairs = links
+    .map((link) => {
+      const targetId = link.getAttribute("href")?.slice(1);
+      if (!targetId) return null;
+      const section = document.getElementById(targetId);
+      if (!section) return null;
+      return { link, section, id: targetId };
+    })
+    .filter(Boolean);
+
+  if (!pairs.length) return;
+
+  let activeId = "";
+
+  const setActive = (id) => {
+    if (!id || id === activeId) return;
+    activeId = id;
+    pairs.forEach(({ link, id: linkId }) => {
+      link.classList.toggle("is-active", linkId === id);
+    });
+  };
+
+  const updateFromViewport = () => {
+    const marker = window.innerHeight * 0.28;
+    let current = pairs[0].id;
+
+    pairs.forEach(({ section, id }) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= marker && rect.bottom > marker) current = id;
+    });
+
+    setActive(current);
+  };
+
+  const observer = new IntersectionObserver(
+    () => {
+      updateFromViewport();
+    },
+    {
+      rootMargin: "-20% 0px -55% 0px",
+      threshold: [0, 0.15, 0.4, 0.75, 1],
+    }
+  );
+
+  pairs.forEach(({ section }) => observer.observe(section));
+
+  window.addEventListener("scroll", updateFromViewport, { passive: true });
+  window.addEventListener("resize", updateFromViewport);
+  window.addEventListener("hashchange", () => {
+    const hashId = window.location.hash.slice(1);
+    if (pairs.some(({ id }) => id === hashId)) setActive(hashId);
+    else updateFromViewport();
+  });
+
+  const hashId = window.location.hash.slice(1);
+  if (pairs.some(({ id }) => id === hashId)) setActive(hashId);
+  else updateFromViewport();
+};
+
 const bindClaraLightbox = () => {
   const dialog = document.getElementById("image-lightbox");
   const dialogImage = document.getElementById("image-lightbox-asset");
@@ -307,6 +370,7 @@ bindExclusiveSpotifyPlayback();
 bindTrackVisuals();
 bindDiaryMore();
 bindMobileNav();
+bindSectionNavState();
 bindClaraLightbox();
 bindLanguagePreference();
 bindSectionNavHighlight();
