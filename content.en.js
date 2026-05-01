@@ -59,6 +59,7 @@ export default {
     "follow": "Follow KØVLI on Instagram",
     "more": "See more",
     "less": "See less",
+    "openImage": "Open image",
     "alt": "KØVLI visual diary fragment"
   },
   "clara": {
@@ -81,7 +82,7 @@ export default {
     "By morning, the same body carries a different name."
   ],
   "support": {
-    "kicker": "Support the project",
+    "kicker": "Listening is supporting",
     "title": "If this resonates, share it.<br />Every listen matters.",
     "playlistTitle": "Spotify playlist: Lost in KØVLI",
     "fallback": "Play Lost in KØVLI on Spotify",

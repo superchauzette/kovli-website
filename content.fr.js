@@ -59,6 +59,7 @@ export default {
     "follow": "Suivre KØVLI sur Instagram",
     "more": "Voir plus",
     "less": "Voir moins",
+    "openImage": "Ouvrir l'image",
     "alt": "Fragment visuel du journal KØVLI"
   },
   "clara": {
@@ -81,7 +82,7 @@ export default {
     "Et au matin, ce même corps porte un autre nom."
   ],
   "support": {
-    "kicker": "Soutenir le projet",
+    "kicker": "Ecouter c'est soutenir",
     "title": "Si ça résonne en toi, partage.<br />Chaque écoute compte.",
     "playlistTitle": "Playlist Spotify : Lost in KØVLI",
     "fallback": "Écouter Lost in KØVLI sur Spotify",

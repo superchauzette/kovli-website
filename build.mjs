@@ -142,7 +142,14 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
 function renderDiaryItem(item, index, localeKey, content) {
   return `
     <figure class="diary-item reveal${index >= 6 ? " is-extra" : ""}" style="--delay:${index * 55}ms">
-      <img src="${localeAssetPath(localeKey, item.image)}" loading="lazy" alt="${escapeHtml(content.diaryUi.alt)}" />
+      <button
+        class="gallery-lightbox-trigger diary-photo-button"
+        type="button"
+        data-image="${localeAssetPath(localeKey, item.image)}"
+        data-caption="${escapeHtml(item.caption)}"
+        aria-label="${escapeHtml(`${content.diaryUi.openImage} ${item.caption}`)}">
+        <img src="${localeAssetPath(localeKey, item.image)}" loading="lazy" alt="${escapeHtml(content.diaryUi.alt)}" />
+      </button>
       <figcaption>${escapeHtml(item.caption)}</figcaption>
     </figure>
   `;
@@ -152,7 +159,7 @@ function renderClaraPhoto(item, index, localeKey, content) {
   return `
     <figure class="clara-photo clara-photo-${index + 1}">
       <button
-        class="clara-photo-button"
+        class="gallery-lightbox-trigger clara-photo-button"
         type="button"
         data-image="${localeAssetPath(localeKey, item.image)}"
         data-caption="${escapeHtml(item.caption)}"
@@ -258,7 +265,7 @@ function buildPage(localeKey) {
         <a class="nav-link nav-link-section" href="#story">${escapeHtml(content.nav.story)}</a>
         <a class="nav-link nav-link-section" href="#shifted-lives">${escapeHtml(content.nav.arc1)}</a>
         <a class="nav-link nav-link-section" href="#je-descends-ici">${escapeHtml(content.nav.arc2)}</a>
-        <a class="nav-link nav-link-section" href="#diary">${escapeHtml(content.nav.kovli)}</a>
+        <a class="nav-link nav-link-section" href="#kovli">${escapeHtml(content.nav.kovli)}</a>
         <a class="nav-link nav-link-section" href="#clara">${escapeHtml(content.nav.clara)}</a>
         <a class="nav-link nav-link-section" href="#support">${escapeHtml(content.nav.listen)}</a>
         <a class="nav-link nav-link-language" href="${paths.languageFr}" hreflang="fr" lang="fr"${localeKey === "fr" ? ' aria-current="page"' : ""}>${content.langSwitch.fr}</a>
@@ -334,7 +341,7 @@ function buildPage(localeKey) {
         </div>
       </section>
 
-      <section id="diary" class="content-section diary-section">
+      <section id="kovli" class="content-section diary-section">
         <div class="split-heading reveal">
           <p class="section-kicker">${escapeHtml(content.diaryUi.kicker)}</p>
           <h2>${content.diaryUi.title}</h2>

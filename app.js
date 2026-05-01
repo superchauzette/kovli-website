@@ -97,7 +97,7 @@ const bindTrackVisuals = () => {
 };
 
 const bindDiaryMore = () => {
-  const diarySection = document.getElementById("diary");
+  const diarySection = document.getElementById("kovli");
   const moreButton = document.getElementById("diary-more");
   if (!diarySection || !moreButton) return;
 
@@ -157,7 +157,7 @@ const bindClaraLightbox = () => {
   const dialogImage = document.getElementById("image-lightbox-asset");
   const dialogCaption = document.getElementById("image-lightbox-caption");
   const closeButton = dialog?.querySelector(".image-lightbox-close");
-  const triggers = document.querySelectorAll(".clara-photo-button");
+  const triggers = document.querySelectorAll(".gallery-lightbox-trigger");
   if (!dialog || !dialogImage || !dialogCaption || !closeButton || !triggers.length) return;
 
   const close = () => {
