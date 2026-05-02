@@ -359,6 +359,11 @@ body.nav-open .nav-toggle span:nth-child(3) {
   line-height: 0.96;
 }
 
+.story-copy h2 {
+  font-size: clamp(2rem, 8.6vw, 5.9rem);
+  line-height: 1;
+}
+
 .story-copy p,
 .arc-intro p,
 .clara-copy p,
