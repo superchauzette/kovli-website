@@ -23,6 +23,7 @@ export default {
     "eyebrow": "Paris / after hours",
     "subtitle": [
       "Paris nights, start to finish.",
+      "Between emotion & tech.",
       "Between connection and distance.",
       "Step into the story."
     ],
@@ -33,7 +34,7 @@ export default {
   },
   "story": {
     "kicker": "The story",
-    "title": "KØVLI is not just about music.<br />It’s about what remains...",
+    "title": "KØVLI is not just about music.<br />It’s an artistic project shaped by emotion, technology, and memory.<br />It’s about what remains...",
     "paragraphs": [
       "A place where nights stretch longer than they should, where strangers become something more, or nothing at all.",
       "Born between fading lights, drifting bodies and silent comedowns, KØVLI captures what happens between connection and disappearance.",

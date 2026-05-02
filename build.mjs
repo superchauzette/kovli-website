@@ -290,9 +290,7 @@ function buildPage(localeKey) {
           <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
           <h1>KØVLI</h1>
           <p class="hero-subtitle">
-            ${escapeHtml(content.hero.subtitle[0])}<br />
-            ${escapeHtml(content.hero.subtitle[1])}<br />
-            ${escapeHtml(content.hero.subtitle[2])}
+            ${content.hero.subtitle.map((line) => escapeHtml(line)).join("<br />\n            ")}
           </p>
           <div class="hero-actions" aria-label="Hero actions">
             <a class="button button-primary" href="#support">${escapeHtml(content.hero.listen)}</a>
