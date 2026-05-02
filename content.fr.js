@@ -23,7 +23,7 @@ export default {
     "eyebrow": "Paris / after hours",
     "subtitle": [
       "Les nuits Parisiennes, start to finish.",
-      "Between emotion & tech.",
+      "À la frontière de l’émotion et de la technologie.",
       "Entre connexion et distance.",
       "L’histoire commence ici."
     ],
@@ -34,7 +34,7 @@ export default {
   },
   "story": {
     "kicker": "L'histoire",
-    "title": "KØVLI ce n'est pas juste de la musique.<br />C'est un projet artistique entre émotion, technologie et mémoire.<br />C'est ce qui reste...",
+    "title": "KØVLI n'est pas juste de la musique.<br />Un projet à la frontière de l’émotion, de la technologie et de la mémoire.<br />Ce qui reste…",
     "paragraphs": [
       "Un endroit où les nuits s'étirent plus longtemps qu'elles ne devraient, où les inconnus deviennent quelque chose de plus, ou plus rien du tout.",
       "Né entre lumières qui s’éteignent, corps qui dérivent et descentes silencieuses, KØVLI capture ce moment fragile entre connexion et disparition.",
