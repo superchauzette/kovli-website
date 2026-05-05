@@ -125,7 +125,7 @@ export default {
     "instagram": "https://www.instagram.com/kovliho",
     "tidal": "https://tidal.com/artist/77288896",
     "youtube": "https://music.youtube.com/channel/UCEdNa1Smv8vfBqp0kM7e6DQ",
-    "tiktok": "https://tiktok.com/@kovli1987"
+    "tiktok": "https://www.tiktok.com/@kovliho"
   },
   "arcA": [
     {
