@@ -39,7 +39,11 @@ export default {
       "A place where nights stretch longer than they should, where strangers become something more, or nothing at all.",
       "Born between fading lights, drifting bodies and silent comedowns, KØVLI captures what happens between connection and disappearance.",
       "The project currently unfolds in two arcs."
-    ]
+    ],
+    "visual": {
+      "src": "assets/videos/kovli-arc-1.mp4",
+      "label": "KØVLI story video"
+    }
   },
   "arcs": {
     "arc1": {
@@ -317,6 +321,28 @@ export default {
       "cover": "assets/images/video-stills/force.png",
       "visual": "assets/videos/force.mp4",
       "lyrics": "Force\nForce\n\nJ'ai gardé le choc dans les mains\nSous la peau, la nuit revient\nPas besoin d'expliquer\nÇa se tient\n\nOn m'a dit \"reste calme\"\nMais le cœur veut parler plus fort\nJe connais cette fièvre\nJe connais ce décor\n\nForce\nDans la voix\nForce\nDans les pas\n\nQuand tout vacille encore\nJe tiens\nQuand tout s'efface dehors\nJe reviens\n\nForce\nPlus doucement\nForce\nMais vivant\n\nCe qui brûle\nNe disparaît pas\nÇa devient autre chose\nEt ça marche avec moi"
+    },
+    {
+      "title": "Étoile filante",
+      "description": "Written for my mother, this song may now belong a little to everyone who has lost a mother, or someone close, and is learning how to live with that absence.",
+      "spotify": {
+        "type": "track",
+        "id": "1MS3KJluAfPpLOrQiWEbXX"
+      },
+      "cover": "assets/images/video-stills/je-descends-ici.png",
+      "visual": "assets/videos/etoile-filante.mp4",
+      "lyrics": ""
+    },
+    {
+      "title": "Night Shortcuts",
+      "description": "A tribute to queer friendships born through chemical shortcuts, improbable misunderstandings, and unforgettable nights that turn strangers into chosen family.",
+      "spotify": {
+        "type": "track",
+        "id": "7wm2kmiRY2Q4H9FRAxPmw8"
+      },
+      "cover": "assets/images/video-stills/je-descends-ici.png",
+      "visual": "assets/videos/night-shortcuts.mp4",
+      "lyrics": ""
     }
   ],
   "diary": [

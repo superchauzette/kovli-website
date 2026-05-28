@@ -311,7 +311,9 @@ function buildPage(localeKey) {
             ${content.story.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           </div>
           <div class="story-image reveal" data-parallax="soft">
-            <img src="${localeAssetPath(localeKey, "assets/images/kovli-01.jpg")}" loading="lazy" alt="KØVLI submerged in blue water" />
+            ${content.story.visual?.src
+              ? `<video class="story-video" src="${localeAssetPath(localeKey, content.story.visual.src)}" autoplay muted loop playsinline preload="metadata" aria-label="${escapeHtml(content.story.visual.label || "KØVLI story video")}"></video>`
+              : `<img src="${localeAssetPath(localeKey, "assets/images/kovli-01.jpg")}" loading="lazy" alt="KØVLI submerged in blue water" />`}
           </div>
         </div>
       </section>

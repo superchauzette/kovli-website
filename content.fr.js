@@ -39,7 +39,11 @@ export default {
       "Un endroit où les nuits s'étirent plus longtemps qu'elles ne devraient, où les inconnus deviennent quelque chose de plus, ou plus rien du tout.",
       "Né entre lumières qui s’éteignent, corps qui dérivent et descentes silencieuses, KØVLI capture ce moment fragile entre connexion et disparition.",
       "Le projet se déploie aujourd'hui en deux arcs."
-    ]
+    ],
+    "visual": {
+      "src": "assets/videos/kovli-arc-1.mp4",
+      "label": "Visuel video KØVLI"
+    }
   },
   "arcs": {
     "arc1": {
@@ -312,6 +316,28 @@ export default {
       "cover": "assets/images/video-stills/force.png",
       "visual": "assets/videos/force.mp4",
       "lyrics": "Force\nForce\n\nJ'ai gardé le choc dans les mains\nSous la peau, la nuit revient\nPas besoin d'expliquer\nÇa se tient\n\nOn m'a dit \"reste calme\"\nMais le cœur veut parler plus fort\nJe connais cette fièvre\nJe connais ce décor\n\nForce\nDans la voix\nForce\nDans les pas\n\nQuand tout vacille encore\nJe tiens\nQuand tout s'efface dehors\nJe reviens\n\nForce\nPlus doucement\nForce\nMais vivant\n\nCe qui brûle\nNe disparaît pas\nÇa devient autre chose\nEt ça marche avec moi"
+    },
+    {
+      "title": "Étoile filante",
+      "description": "Écrite pour ma mère, cette chanson s'est peut-être ouverte à autre chose: à toutes celles et ceux qui ont perdu une mère, ou un être proche, et qui apprennent à vivre avec ce manque.",
+      "spotify": {
+        "type": "track",
+        "id": "1MS3KJluAfPpLOrQiWEbXX"
+      },
+      "cover": "assets/images/video-stills/je-descends-ici.png",
+      "visual": "assets/videos/etoile-filante.mp4",
+      "lyrics": ""
+    },
+    {
+      "title": "Night Shortcuts",
+      "description": "Un hommage aux amitiés queer nées dans les raccourcis chimiques, les malentendus improbables et les nuits inoubliables qui transforment des inconnus en famille choisie.",
+      "spotify": {
+        "type": "track",
+        "id": "7wm2kmiRY2Q4H9FRAxPmw8"
+      },
+      "cover": "assets/images/video-stills/je-descends-ici.png",
+      "visual": "assets/videos/night-shortcuts.mp4",
+      "lyrics": ""
     }
   ],
   "diary": [
