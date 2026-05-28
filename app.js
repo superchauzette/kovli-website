@@ -89,6 +89,64 @@ const bindTrackVisuals = () => {
   });
 };
 
+const generateTrackPosters = () => {
+  const triggers = document.querySelectorAll('.track-visual-trigger[data-poster-from-video="true"]');
+  if (!triggers.length) return;
+
+  triggers.forEach((trigger) => {
+    const videoSrc = trigger.dataset.video;
+    const posterImage = trigger.querySelector('.track-visual-poster');
+    if (!videoSrc || !posterImage) return;
+
+    const video = document.createElement('video');
+    video.muted = true;
+    video.preload = 'metadata';
+    video.playsInline = true;
+    video.src = videoSrc;
+
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
+    const cleanup = () => {
+      video.removeAttribute('src');
+      video.load();
+    };
+
+    const capture = () => {
+      if (!video.videoWidth || !video.videoHeight) {
+        cleanup();
+        return;
+      }
+
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      try {
+        posterImage.src = canvas.toDataURL('image/jpeg', 0.82);
+      } catch (error) {
+        // Ignore and keep fallback poster if the browser blocks canvas export.
+      }
+
+      cleanup();
+    };
+
+    video.addEventListener('loadeddata', () => {
+      const targetTime = Math.min(0.2, Math.max(0, (video.duration || 0.2) - 0.01));
+      if (targetTime <= 0) {
+        capture();
+        return;
+      }
+
+      video.addEventListener('seeked', capture, { once: true });
+      video.currentTime = targetTime;
+    }, { once: true });
+
+    video.addEventListener('error', cleanup, { once: true });
+  });
+};
+
 const bindDiaryMore = () => {
   const diarySection = document.getElementById("kovli");
   const moreButton = document.getElementById("diary-more");
@@ -298,6 +356,7 @@ observeReveals();
 lazyLoadSpotify();
 bindExclusiveSpotifyPlayback();
 bindTrackVisuals();
+generateTrackPosters();
 bindDiaryMore();
 bindMobileNav();
 bindClaraLightbox();

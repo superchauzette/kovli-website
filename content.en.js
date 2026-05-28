@@ -331,6 +331,7 @@ export default {
       },
       "cover": "assets/images/video-stills/je-descends-ici.png",
       "visual": "assets/videos/etoile-filante.mp4",
+      "posterFromVideo": true,
       "lyrics": ""
     },
     {
@@ -342,6 +343,7 @@ export default {
       },
       "cover": "assets/images/video-stills/je-descends-ici.png",
       "visual": "assets/videos/night-shortcuts.mp4",
+      "posterFromVideo": true,
       "lyrics": ""
     }
   ],

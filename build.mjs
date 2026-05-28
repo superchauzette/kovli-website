@@ -83,6 +83,7 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
         type="button"
         data-video="${localeAssetPath(localeKey, track.visual)}"
         data-poster="${localeAssetPath(localeKey, track.cover || "")}"
+        data-poster-from-video="${track.posterFromVideo ? "true" : "false"}"
         aria-label="${escapeHtml(`${content.trackUi.loadVisualAria} ${track.title}`)}">
         <img class="track-visual-poster" src="${localeAssetPath(localeKey, track.cover)}" loading="lazy" alt="${escapeHtml(`${track.title} ${content.trackUi.coverAltSuffix}`)}" />
         <span class="track-visual-badge">${escapeHtml(content.trackUi.loadVisual)}</span>
