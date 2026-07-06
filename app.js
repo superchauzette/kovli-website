@@ -147,6 +147,31 @@ const generateTrackPosters = () => {
   });
 };
 
+const bindTrackAccordion = () => {
+  const toggles = document.querySelectorAll(".track-toggle");
+  if (!toggles.length) return;
+
+  toggles.forEach((toggle) => {
+    const body = document.getElementById(toggle.getAttribute("aria-controls"));
+    if (!body) return;
+    const card = toggle.closest(".track-card");
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      body.hidden = isOpen;
+      card?.classList.toggle("is-open", !isOpen);
+
+      if (!isOpen) {
+        // Load the Spotify embed only the first time the row opens.
+        body.querySelectorAll(".deferred-embed").forEach((frame) => {
+          if (!frame.src && frame.dataset.src) frame.src = frame.dataset.src;
+        });
+      }
+    });
+  });
+};
+
 const bindDiaryMore = () => {
   const diarySection = document.getElementById("kovli");
   const moreButton = document.getElementById("diary-more");
@@ -206,10 +231,19 @@ const bindMobileNav = () => {
 const bindClaraLightbox = () => {
   const dialog = document.getElementById("image-lightbox");
   const dialogImage = document.getElementById("image-lightbox-asset");
+  const dialogVideo = document.getElementById("image-lightbox-video");
   const dialogCaption = document.getElementById("image-lightbox-caption");
   const closeButton = dialog?.querySelector(".image-lightbox-close");
   const triggers = document.querySelectorAll(".gallery-lightbox-trigger");
   if (!dialog || !dialogImage || !dialogCaption || !closeButton || !triggers.length) return;
+
+  const resetVideo = () => {
+    if (!dialogVideo) return;
+    dialogVideo.pause();
+    dialogVideo.removeAttribute("src");
+    dialogVideo.load();
+    dialogVideo.hidden = true;
+  };
 
   const close = () => {
     if (dialog.open) dialog.close();
@@ -217,10 +251,23 @@ const bindClaraLightbox = () => {
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
-      dialogImage.src = trigger.dataset.image || "";
-      dialogImage.alt = trigger.querySelector("img")?.alt || "Gallery image";
       dialogCaption.textContent = trigger.dataset.caption || "";
-      dialog.showModal();
+      if (trigger.dataset.video && dialogVideo) {
+        // Vidéo : son activé dans la lightbox
+        dialogImage.hidden = true;
+        dialogImage.src = "";
+        dialogVideo.hidden = false;
+        dialogVideo.src = trigger.dataset.video;
+        dialogVideo.currentTime = 0;
+        dialog.showModal();
+        dialogVideo.play().catch(() => {});
+      } else {
+        resetVideo();
+        dialogImage.hidden = false;
+        dialogImage.src = trigger.dataset.image || "";
+        dialogImage.alt = trigger.querySelector("img")?.alt || "Gallery image";
+        dialog.showModal();
+      }
     });
   });
 
@@ -229,6 +276,7 @@ const bindClaraLightbox = () => {
     if (event.target === dialog) close();
   });
   dialog.addEventListener("close", () => {
+    resetVideo();
     dialogImage.src = "";
   });
 };
@@ -352,11 +400,140 @@ const bindHeroMedia = () => {
   });
 };
 
+const prefersReducedMotion = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hasFinePointer = () => window.matchMedia("(pointer: fine)").matches;
+
+// 🔦 Halo lumineux qui suit le curseur — "lampe dans la nuit".
+const bindCursorGlow = () => {
+  if (prefersReducedMotion() || !hasFinePointer()) return;
+
+  const glow = document.createElement("div");
+  glow.className = "cursor-glow";
+  glow.setAttribute("aria-hidden", "true");
+  document.body.appendChild(glow);
+
+  let x = window.innerWidth / 2;
+  let y = window.innerHeight / 2;
+  let targetX = x;
+  let targetY = y;
+  let raf = null;
+
+  const render = () => {
+    x += (targetX - x) * 0.16;
+    y += (targetY - y) * 0.16;
+    glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    if (Math.abs(targetX - x) > 0.4 || Math.abs(targetY - y) > 0.4) {
+      raf = requestAnimationFrame(render);
+    } else {
+      raf = null;
+    }
+  };
+
+  window.addEventListener("mousemove", (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    glow.style.opacity = "1";
+    if (!raf) raf = requestAnimationFrame(render);
+  });
+  document.addEventListener("mouseleave", () => {
+    glow.style.opacity = "0";
+  });
+};
+
+// 🧲 Boutons attirés par le curseur.
+const bindMagneticButtons = () => {
+  if (prefersReducedMotion() || !hasFinePointer()) return;
+
+  document.querySelectorAll(".button-spotify").forEach((btn) => {
+    const strength = 0.28;
+    btn.addEventListener("mousemove", (event) => {
+      const rect = btn.getBoundingClientRect();
+      const mx = event.clientX - (rect.left + rect.width / 2);
+      const my = event.clientY - (rect.top + rect.height / 2);
+      btn.style.transform = `translate(${mx * strength}px, ${my * strength}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+    });
+  });
+};
+
+// ⌁ Le wordmark KØVLI se recompose par brouillage — "chair et code".
+const bindTextScramble = () => {
+  const el = document.querySelector(".hero h1");
+  if (!el) return;
+  const finalText = el.textContent;
+  if (prefersReducedMotion()) return;
+
+  const glyphs = "AÆBCDEFGHIJKLMNØPQRSTUVWXYZ0123456789/#*<>[]{}";
+  const totalFrames = 36;
+  let frame = 0;
+
+  el.classList.add("is-scrambling");
+
+  const tick = () => {
+    frame++;
+    const revealCount = Math.floor((frame / totalFrames) * finalText.length);
+    let out = "";
+    for (let i = 0; i < finalText.length; i++) {
+      out +=
+        i < revealCount
+          ? finalText[i]
+          : glyphs[Math.floor(Math.random() * glyphs.length)];
+    }
+    el.textContent = out;
+    if (frame < totalFrames) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = finalText;
+      el.classList.remove("is-scrambling");
+    }
+  };
+
+  window.setTimeout(() => requestAnimationFrame(tick), 240);
+};
+
+// Formulaire capture Brevo : envoi no-cors (on reste sur la page) + message inline.
+const bindCaptureForm = () => {
+  const form = document.getElementById("capture-form");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // Honeypot : si ce champ est rempli, c'est un bot -> on ignore silencieusement.
+    if (form.querySelector('[name="email_address_check"]')?.value) return;
+    const email = form.querySelector('[name="EMAIL"]');
+    if (email && !email.checkValidity()) {
+      email.reportValidity();
+      return;
+    }
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      mode: "no-cors",
+    }).catch(() => {});
+
+    const card = form.closest(".capture-card");
+    form.hidden = true;
+    const note = card?.querySelector(".capture-note");
+    if (note) note.hidden = true;
+    const success = card?.querySelector("[data-capture-success]");
+    if (success) success.hidden = false;
+  });
+};
+
 observeReveals();
+bindCursorGlow();
+bindMagneticButtons();
+bindTextScramble();
+bindCaptureForm();
 lazyLoadSpotify();
 bindExclusiveSpotifyPlayback();
 bindTrackVisuals();
 generateTrackPosters();
+bindTrackAccordion();
 bindDiaryMore();
 bindMobileNav();
 bindClaraLightbox();

@@ -1,12 +1,41 @@
 import fs from "node:fs/promises";
+import { readdirSync } from "node:fs";
 import path from "node:path";
 import frContent from "./content.fr.js";
 import enContent from "./content.en.js";
 
 const rootDir = process.cwd();
+
+// Pochettes de singles (celles affichées sur Spotify) : assets/images/covers/<slug>.jpg
+const coverFiles = new Set(readdirSync(path.join(rootDir, "assets/images/covers")));
+function coverForTitle(title) {
+  const slug = title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return coverFiles.has(`${slug}.jpg`) ? `assets/images/covers/${slug}.jpg` : null;
+}
 const siteUrl = "https://kov.li";
 const googleAnalyticsId = "G-KZLZLSWSVS";
 const contentByLocale = { fr: frContent, en: enContent };
+
+// ============================================================
+//  PLACEHOLDERS À REMPLIR — regroupés ici volontairement.
+//  Voir aussi <!-- EMAIL_FORM_EMBED --> dans la section capture.
+// ============================================================
+// 1) Meta Pixel : remplace PIXEL_ID_ICI par l'ID numérique du pixel.
+const META_PIXEL_ID = "231554627793556";
+// 2) CTA prioritaire : profil Spotify (PAS un album). Pré-rempli avec
+//    le profil KØVLI connu — remplace si tu veux forcer une autre URL.
+const SPOTIFY_PROFILE_URL = "https://open.spotify.com/intl-fr/artist/4T91cWzQpg31KoUXLNu3WB?si=jbLb-9FMSCOd-NLM3lJtng";
+// 3) Pre-save prochaine sortie : lien du pré-enregistrement (Distrokid,
+//    Feature.fm, Show.co, Laylo…). À remplir quand la sortie est calée.
+const PRESAVE_URL = "PRESAVE_URL";
+// 4) Contact presse : email affiché dans le bloc Presse (bookings/médias).
+const PRESS_EMAIL = "hello@kov.li";
+// ============================================================
 
 function escapeHtml(value) {
   return String(value)
@@ -28,8 +57,8 @@ function spotifyUrl(track) {
 function getPaths(localeKey) {
   return localeKey === "fr"
     ? {
-        styles: "styles.css?v=20260429f",
-        script: "app.js?v=20260429e",
+        styles: "styles.css?v=20260706g",
+        script: "app.js?v=20260706g",
         heroVideo: "assets/videos/hero-memory.mp4",
         heroPoster: "assets/images/night-fragment-02.jpg",
         preview: `${siteUrl}/assets/images/preview.jpg`,
@@ -38,8 +67,8 @@ function getPaths(localeKey) {
         faviconBase: "assets/images",
       }
     : {
-        styles: "../styles.css?v=20260429f",
-        script: "../app.js?v=20260429e",
+        styles: "../styles.css?v=20260706g",
+        script: "../app.js?v=20260706g",
         heroVideo: "../assets/videos/hero-memory.mp4",
         heroPoster: "../assets/images/night-fragment-02.jpg",
         preview: `${siteUrl}/assets/images/preview.jpg`,
@@ -99,57 +128,87 @@ function renderTrackCard(track, index, arcName, localeKey, content) {
     `
     : "";
 
+  const hasVisual = Boolean(visual || imageVisual);
+  const bodyId = `track-body-${arcName}-${index}`;
+  const number = String(index + 1).padStart(2, "0");
+  const thumbSrc = coverForTitle(track.title) || track.cover;
+  const thumb = thumbSrc
+    ? `<span class="track-thumb"><img src="${localeAssetPath(localeKey, thumbSrc)}" loading="lazy" alt="" /></span>`
+    : `<span class="track-thumb track-thumb-empty" aria-hidden="true">${number}</span>`;
+  const featTag = track.features?.length
+    ? `<span class="track-feat">${escapeHtml(content.trackUi.with)} ${escapeHtml(track.features.join(", "))}</span>`
+    : "";
+
   return `
     <article class="track-card reveal" style="--delay:${Math.min(index, 8) * 45}ms">
-      <div class="track-head">
-        <p class="track-number">${String(index + 1).padStart(2, "0")} / ${arcName}</p>
-        <h3>${escapeHtml(track.title)}</h3>
+      <button class="track-toggle" type="button" aria-expanded="false" aria-controls="${bodyId}">
+        ${thumb}
+        <span class="track-toggle-text">
+          <span class="track-number">${number}</span>
+          <span class="track-name">${escapeHtml(track.title)}${featTag}</span>
+          <span class="track-teaser">${escapeHtml(track.description)}</span>
+        </span>
+        <span class="track-chevron" aria-hidden="true"></span>
+      </button>
+
+      <div class="track-body" id="${bodyId}" hidden>
         ${features}
         <p class="track-description">${escapeHtml(track.description)}</p>
-      </div>
 
-      <div class="track-media-row">
-        <div class="track-spotify">
-          <div class="spotify-player">
-            <div class="spotify-player-top">
-              <span>${escapeHtml(content.trackUi.listen)}</span>
+        <div class="track-media-row${hasVisual ? " has-visual" : ""}">
+          <div class="track-spotify">
+            <div class="spotify-player">
+              <div class="spotify-player-top">
+                <span>${escapeHtml(content.trackUi.listen)}</span>
+              </div>
+              <iframe
+                class="spotify-frame deferred-embed"
+                title="Spotify embed: ${escapeHtml(track.title)}"
+                data-src="${spotifySrc(track)}"
+                width="100%"
+                height="152"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <a class="spotify-fallback" href="${spotifyUrl(track)}" target="_blank" rel="noreferrer">${escapeHtml(content.trackUi.spotifyFallback)}</a>
             </div>
-            <iframe
-              class="spotify-frame deferred-embed"
-              title="Spotify embed: ${escapeHtml(track.title)}"
-              data-src="${spotifySrc(track)}"
-              width="100%"
-              height="152"
-              frameborder="0"
-              allowfullscreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            <a class="spotify-fallback" href="${spotifyUrl(track)}" target="_blank" rel="noreferrer">${escapeHtml(content.trackUi.spotifyFallback)}</a>
           </div>
 
+          ${visual ? `<div class="track-visual-wrap">${visual}</div>` : imageVisual}
         </div>
 
-        ${visual ? `<div class="track-visual-wrap">${visual}</div>` : imageVisual}
+        ${renderLyricsPanel(track, content)}
       </div>
-
-
-      ${renderLyricsPanel(track, content)}
-
     </article>
   `;
 }
 
+// Média d'un item de galerie : vidéo (muette, boucle) si item.video, sinon image.
+// L'image sert de poster à la vidéo. Le clic ouvre la lightbox (avec son pour la vidéo).
+function galleryMedia(item, localeKey, alt) {
+  if (item.video) {
+    const poster = item.image ? ` poster="${localeAssetPath(localeKey, item.image)}"` : "";
+    return `
+      <video class="gallery-video" src="${localeAssetPath(localeKey, item.video)}"${poster}
+        muted loop autoplay playsinline preload="metadata"></video>
+      <span class="gallery-video-badge" aria-hidden="true"></span>`;
+  }
+  return `<img src="${localeAssetPath(localeKey, item.image)}" loading="lazy" alt="${escapeHtml(alt)}" />`;
+}
+
 function renderDiaryItem(item, index, localeKey, content) {
+  const videoAttr = item.video ? ` data-video="${localeAssetPath(localeKey, item.video)}"` : "";
   return `
     <figure class="diary-item reveal${index >= 6 ? " is-extra" : ""}" style="--delay:${index * 55}ms">
       <button
         class="gallery-lightbox-trigger diary-photo-button"
-        type="button"
-        data-image="${localeAssetPath(localeKey, item.image)}"
+        type="button"${videoAttr}
+        data-image="${localeAssetPath(localeKey, item.image || "")}"
         data-caption="${escapeHtml(item.caption)}"
         aria-label="${escapeHtml(`${content.diaryUi.openImage} ${item.caption}`)}">
-        <img src="${localeAssetPath(localeKey, item.image)}" loading="lazy" alt="${escapeHtml(content.diaryUi.alt)}" />
+        ${galleryMedia(item, localeKey, content.diaryUi.alt)}
       </button>
       <figcaption>${escapeHtml(item.caption)}</figcaption>
     </figure>
@@ -157,15 +216,16 @@ function renderDiaryItem(item, index, localeKey, content) {
 }
 
 function renderClaraPhoto(item, index, localeKey, content) {
+  const videoAttr = item.video ? ` data-video="${localeAssetPath(localeKey, item.video)}"` : "";
   return `
     <figure class="clara-photo clara-photo-${index + 1}">
       <button
         class="gallery-lightbox-trigger clara-photo-button"
-        type="button"
-        data-image="${localeAssetPath(localeKey, item.image)}"
+        type="button"${videoAttr}
+        data-image="${localeAssetPath(localeKey, item.image || "")}"
         data-caption="${escapeHtml(item.caption)}"
         aria-label="${escapeHtml(`${content.clara.openImage} ${item.caption}`)}">
-        <img src="${localeAssetPath(localeKey, item.image)}" loading="lazy" alt="${escapeHtml(`${content.clara.galleryAltPrefix} ${item.caption}`)}" />
+        ${galleryMedia(item, localeKey, `${content.clara.galleryAltPrefix} ${item.caption}`)}
       </button>
       <figcaption>${escapeHtml(item.caption)}</figcaption>
     </figure>
@@ -175,9 +235,11 @@ function renderClaraPhoto(item, index, localeKey, content) {
 function renderSupportLinks(content) {
   const links = [
     [content.support.linksUi.appleMusic, content.links.appleMusic],
+    [content.support.linksUi.amazonMusic, content.links.amazonMusic],
     [content.support.linksUi.deezer, content.links.deezer],
     [content.support.linksUi.tidal, content.links.tidal],
     [content.support.linksUi.youtube, content.links.youtube],
+    [content.support.linksUi.youtubeChannel, content.links.youtubeChannel],
 
   ].filter(([, href]) => Boolean(href));
 
@@ -205,6 +267,50 @@ function renderClaraTracks(content) {
 
 function nlToHtml(value) {
   return escapeHtml(value).replace(/\n/g, "<br />");
+}
+
+// Bloc capture email — formulaire Brevo (liste "Kovli", double opt-in).
+// L'action POST pointe vers l'endpoint sibforms de Brevo ; app.js l'envoie en
+// fetch no-cors pour rester sur la page et afficher un message inline.
+const BREVO_FORM_ACTION = "https://c4523f92.sibforms.com/serve/MUIFAKdSp-dSIRmHZy9kenj-AG9udCtS-2-gp-cjR0MwsfWOBiHeo6xUGwks_wXgMA7AGTrjhgSn5bIxWDCOcrRQgQKLPtPYh7W5TL9ZMuMKBAnnG7OIN4y91DcxF47fSWJ7-lFUidKdOgifAv4SOjZ_QTadZ4fSnOx0K_yXxuzDL07_k0L6kJa_xPMJW-GkKl1RiNYfAMHZ8nnFpA==";
+
+function renderCapture(content) {
+  const c = content.capture;
+  return `
+    <div class="capture-card reveal">
+      <p class="section-kicker">${escapeHtml(c.kicker)}</p>
+      <h2 class="capture-title">${escapeHtml(c.title)}</h2>
+      <p class="capture-subtitle">${escapeHtml(c.subtitle)}</p>
+
+      <!-- EMAIL_FORM_EMBED : formulaire Brevo (liste Kovli, double opt-in) -->
+      <form class="capture-form" id="capture-form" method="POST" action="${BREVO_FORM_ACTION}">
+        <input class="capture-input" type="email" name="EMAIL" inputmode="email" autocomplete="email"
+          placeholder="${escapeHtml(c.placeholder)}" aria-label="${escapeHtml(c.placeholder)}" required />
+        <button class="button button-primary capture-button" type="submit">${escapeHtml(c.button)}</button>
+        <input class="capture-hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="locale" value="${content.meta.lang}" />
+        <input type="hidden" name="html_type" value="simple" />
+      </form>
+      <p class="capture-success" data-capture-success hidden>${escapeHtml(c.success)}</p>
+      <p class="capture-note">${escapeHtml(c.note)}</p>
+    </div>
+  `;
+}
+
+// Bloc pre-save permanent "Prochaine sortie" — réutilisable. Le lien
+// pointe vers PRESAVE_URL (constante en tête de fichier).
+function renderPresave(content) {
+  const c = content.presave;
+  return `
+    <div class="presave-card reveal">
+      <p class="section-kicker">${escapeHtml(c.kicker)}</p>
+      <h2 class="presave-title">${escapeHtml(c.title)}</h2>
+      <p class="presave-text">${escapeHtml(c.text)}</p>
+      <a class="button button-primary button-spotify presave-button" href="${PRESAVE_URL}" target="_blank" rel="noreferrer">
+        <span class="button-spotify-mark" aria-hidden="true"></span>${escapeHtml(c.button)}
+      </a>
+    </div>
+  `;
 }
 
 function buildPage(localeKey) {
@@ -243,6 +349,22 @@ function buildPage(localeKey) {
       gtag('js', new Date());
       gtag('config', '${googleAnalyticsId}');
     </script>
+    <!-- ===== META PIXEL (Facebook/Instagram) — ID = constante META_PIXEL_ID dans build.mjs ===== -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '${META_PIXEL_ID}');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" /></noscript>
+    <!-- ===== FIN META PIXEL ===== -->
     <link rel="preload" href="${paths.heroPoster}" as="image" />
     <link rel="stylesheet" href="${paths.styles}" />
   </head>
@@ -287,6 +409,7 @@ function buildPage(localeKey) {
         ></video>
         <div class="hero-still" aria-hidden="true"></div>
         <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-aurora" aria-hidden="true"></div>
         <div class="hero-content reveal">
           <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
           <h1>KØVLI</h1>
@@ -294,14 +417,22 @@ function buildPage(localeKey) {
             ${content.hero.subtitle.map((line) => escapeHtml(line)).join("<br />\n            ")}
           </p>
           <div class="hero-actions" aria-label="Hero actions">
-            <a class="button button-primary" href="#support">${escapeHtml(content.hero.listen)}</a>
+            <a class="button button-primary button-spotify" href="${SPOTIFY_PROFILE_URL}" target="_blank" rel="noreferrer">
+              <span class="button-spotify-mark" aria-hidden="true"></span>${escapeHtml(content.hero.spotifyFollow)}
+            </a>
             <a class="button" href="#shifted-lives">${escapeHtml(content.hero.explore)}</a>
-            <a class="button" href="${content.links.instagram}" target="_blank" rel="noreferrer">${escapeHtml(content.hero.instagram)}</a>
           </div>
         </div>
         <a class="scroll-cue" href="#story" aria-label="${escapeHtml(content.hero.scroll)}">
           <span></span>
         </a>
+      </section>
+
+      <section id="capture" class="capture-section content-section">
+        <div class="capture-stack">
+          ${renderCapture(content)}
+          ${PRESAVE_URL && PRESAVE_URL !== "PRESAVE_URL" ? renderPresave(content) : ""}
+        </div>
       </section>
 
       <section id="story" class="story-section content-section">
@@ -346,6 +477,7 @@ function buildPage(localeKey) {
         <div class="split-heading reveal">
           <p class="section-kicker">${escapeHtml(content.diaryUi.kicker)}</p>
           <h2>${content.diaryUi.title}</h2>
+          ${content.diaryUi.subtitle ? `<p class="section-lead">${escapeHtml(content.diaryUi.subtitle)}</p>` : ""}
           <a class="text-link" href="${content.links.instagram}" target="_blank" rel="noreferrer">${escapeHtml(content.diaryUi.follow)}</a>
         </div>
         <div id="visual-diary" class="diary-grid">
@@ -378,6 +510,7 @@ function buildPage(localeKey) {
         <div class="support-copy reveal">
           <p class="section-kicker">${escapeHtml(content.support.kicker)}</p>
           <h2>${content.support.title}</h2>
+          ${content.support.subtitle ? `<p class="section-lead">${escapeHtml(content.support.subtitle)}</p>` : ""}
         </div>
         <div class="support-panel reveal">
           <div class="support-stack">
@@ -395,10 +528,24 @@ function buildPage(localeKey) {
               ></iframe>
             </div>
             <div class="support-side">
-              <a class="support-fallback" href="${content.links.playlist}" target="_blank" rel="noreferrer">${escapeHtml(content.support.fallback)}</a>
+              <a class="button button-primary button-spotify support-spotify-follow" href="${SPOTIFY_PROFILE_URL}" target="_blank" rel="noreferrer">
+                <span class="button-spotify-mark" aria-hidden="true"></span>${escapeHtml(content.hero.spotifyFollow)}
+              </a>
+              <p class="support-links-label">${escapeHtml(content.support.platformsLabel)}</p>
               <div id="support-links" class="support-links">${renderSupportLinks(content)}</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="presse" class="press-section content-section">
+        <div class="press-card reveal">
+          <div class="press-copy">
+            <p class="section-kicker">${escapeHtml(content.press.kicker)}</p>
+            <h2 class="press-title">${escapeHtml(content.press.title)}</h2>
+            <p class="press-text">${escapeHtml(content.press.text)}</p>
+          </div>
+          <a class="button button-primary press-button" href="mailto:${PRESS_EMAIL}">${escapeHtml(content.press.button)}</a>
         </div>
       </section>
     </main>
@@ -408,13 +555,14 @@ function buildPage(localeKey) {
       <div class="footer-socials" aria-label="Social links">
         <a href="${content.links.instagram}" target="_blank" rel="noreferrer">IG</a>
         <a href="${content.links.tiktok}" target="_blank" rel="noreferrer">TT</a>
+        <a href="${content.links.facebook}" target="_blank" rel="noreferrer">FB</a>
       </div>
-      <p class="footer-note">${escapeHtml(content.footer.note)}</p>
     </footer>
 
     <dialog id="image-lightbox" class="image-lightbox" aria-label="${escapeHtml(content.lightbox.label)}">
       <button class="image-lightbox-close" type="button" aria-label="${escapeHtml(content.lightbox.close)}">${escapeHtml(content.lightbox.close)}</button>
       <img id="image-lightbox-asset" src="" alt="" />
+      <video id="image-lightbox-video" controls playsinline hidden></video>
       <p id="image-lightbox-caption"></p>
     </dialog>
 

@@ -22,22 +22,38 @@ export default {
   "hero": {
     "eyebrow": "Paris / after hours",
     "subtitle": [
-      "Les nuits Parisiennes, start to finish.",
-      "À la frontière de l’émotion et de la technologie.",
-      "Entre connexion et distance.",
+      "Les nuits parisiennes, du début à la fin.",
+      "Une voix entraînée, nuit après nuit. Une âme bien réelle.",
       "L’histoire commence ici."
     ],
     "listen": "Écouter",
     "explore": "Explorer les arcs",
     "instagram": "Suivre sur Instagram",
+    "spotifyFollow": "Suivre sur Spotify",
     "scroll": "Scroller"
   },
+  "capture": {
+    "kicker": "Transmission nocturne",
+    "title": "Reste dans la nuit.",
+    "subtitle": "Laisse ton email. Ce qui vient passera par là.",
+    "placeholder": "ton@email.fr",
+    "button": "Entrer",
+    "note": "Pas de bruit. Juste les nuits qui comptent. Tu pars quand tu veux.",
+    "success": "Presque. Confirme ton inscription via l'email qu'on vient de t'envoyer."
+  },
+  "presave": {
+    "kicker": "Prochaine sortie",
+    "title": "Le prochain morceau est un message.",
+    "text": "Pour ceux qui sont encore là. Pour ceux qui sont partis. Pré-enregistre-le — il apparaîtra dans ta bibliothèque le jour de sa sortie.",
+    "button": "Pré-enregistrer"
+  },
   "story": {
-    "kicker": "L'histoire",
-    "title": "KØVLI n'est pas juste de la musique.<br />Un projet à la frontière de l’émotion, de la technologie et de la mémoire.<br />Ce qui reste…",
+    "kicker": "Manifeste",
+    "title": "Entre chair et code",
     "paragraphs": [
-      "Un endroit où les nuits s'étirent plus longtemps qu'elles ne devraient, où les inconnus deviennent quelque chose de plus, ou plus rien du tout.",
-      "Né entre lumières qui s’éteignent, corps qui dérivent et descentes silencieuses, KØVLI capture ce moment fragile entre connexion et disparition.",
+      "KØVLI est une voix sans enveloppe physique. Une voix que j'ai façonnée et entraînée, jusqu'à ce qu'elle porte mes nuits, mes silences et mes fantômes parisiens.",
+      "Je ne me cache pas derrière elle : je la remplis. Chaque morceau part d'une mémoire réelle — la mienne — que je travaille jusqu'à ce qu'elle prenne chair et son.",
+      "Ce que tu entends n'est ni tout à fait humain, ni tout à fait machine. C'est ce qui reste entre les deux.",
       "Le projet se déploie aujourd'hui en deux arcs."
     ],
     "visual": {
@@ -60,7 +76,8 @@ export default {
   },
   "diaryUi": {
     "kicker": "KØVLI",
-    "title": "Fragments.<br />Preuves que la nuit a existé.<br />Avant qu'elle ne disparaisse.",
+    "title": "Fragments",
+    "subtitle": "Preuves que la nuit a existé. Avant qu'elle ne disparaisse.",
     "follow": "Suivre KØVLI sur Instagram",
     "more": "Voir plus",
     "less": "Voir moins",
@@ -69,9 +86,9 @@ export default {
   },
   "clara": {
     "kicker": "Clara LØFT",
-    "title": "Clara LØFT ne se fond pas dans le décor. Elle change la tonalité.",
+    "title": "Elle change la tonalité",
     "paragraphs": [
-      "Latina-américaine. Instinctive. Libre. sans concession. Elle navigue entre trois langues comme si c'était une seule. Sans prévenir. Sans demander.",
+      "Clara LØFT ne se fond pas dans le décor. Latina-américaine. Instinctive. Libre. Sans concession. Elle navigue entre trois langues comme si c'était une seule. Sans prévenir. Sans demander.",
       "Là où KØVLI dérive, elle met le feu. Elle apporte de la chaleur, du mouvement, quelque chose d'instable. Il n'existe pas de version figée d'elle. Seulement ce qui se passe quand elle arrive.",
       "Ensemble, ils créent tension, relâchement... et tout ce qu'il y a entre les deux."
     ],
@@ -88,15 +105,25 @@ export default {
   ],
   "support": {
     "kicker": "Ecouter c'est soutenir",
-    "title": "Si ça résonne en toi, partage.<br />Chaque écoute compte.",
+    "title": "Chaque écoute compte",
+    "subtitle": "Si ça résonne en toi, partage.",
     "playlistTitle": "Playlist Spotify : Lost in KØVLI",
+    "platformsLabel": "Sur toutes les plateformes",
     "fallback": "Écouter Lost in KØVLI sur Spotify",
     "linksUi": {
       "appleMusic": "Apple Music",
+      "amazonMusic": "Amazon Music",
       "deezer": "Deezer",
       "tidal": "Tidal",
       "youtube": "YouTube Music",
+      "youtubeChannel": "YouTube",
     }
+  },
+  "press": {
+    "kicker": "Presse",
+    "title": "Écrire sur KØVLI",
+    "text": "Bio, photos haute définition et informations sur demande. Pour les médias, la programmation et les collaborations.",
+    "button": "Contact presse"
   },
   "footer": {
     "note": "Soutenir les voix LGBTQ+."
@@ -124,7 +151,10 @@ export default {
     "instagram": "https://www.instagram.com/kovliho",
     "tidal": "https://tidal.com/artist/77288896",
     "tiktok": "https://www.tiktok.com/@kovliho",
-    "youtube": "https://music.youtube.com/channel/UCEdNa1Smv8vfBqp0kM7e6DQ"
+    "youtube": "https://music.youtube.com/channel/UCEdNa1Smv8vfBqp0kM7e6DQ",
+    "youtubeChannel": "https://www.youtube.com/channel/UCEdNa1Smv8vfBqp0kM7e6DQ",
+    "amazonMusic": "https://music.amazon.com/artists/B0GW83GBKC/k%C3%B8vli",
+    "facebook": "https://www.facebook.com/profile.php?id=61569225724653"
     },
   "arcA": [
     {
@@ -321,25 +351,47 @@ export default {
       "title": "Étoile filante",
       "description": "Écrite pour ma mère, cette chanson s'est peut-être ouverte à autre chose: à toutes celles et ceux qui ont perdu une mère, ou un être proche, et qui apprennent à vivre avec ce manque.",
       "spotify": {
-        "type": "track",
-        "id": "1MS3KJluAfPpLOrQiWEbXX"
+        "type": "album",
+        "id": "5wN2QZYhboZojWnywBNcVr"
       },
       "cover": "assets/images/video-stills/je-descends-ici.png",
       "visual": "assets/videos/etoile-filante.mp4",
       "posterFromVideo": true,
-      "lyrics": ""
+      "lyrics": "T'étais une mère, une femme, une sœur qu'on appelait même pour rien\nToujours dans la cuisine ou déjà dehors\nAu téléphone avec quelqu'un qu't'aimais bien\nTu mettais plus d'passion dans les choses simples\nQue certains dans toute une vie\nC'est sûrement pour ça qu't'étais si forte\nEt qu'tout le monde t'aimait ici\nTu remplissais les pièces du haut de ton mètre cinquante-cinq\nEt nous on trouvait ça normal de vivre à côté d'un soleil pareil\n\nÉtoile filante\nYou came and changed everything around\nÉtoile brillante\nMême pas besoin d'lever les yeux la night\nOn savait même pas\nQu'on vivait quelque chose de rare\nOn a eu de la chance quand même\nDe te voir passer un soir\nDe te voir passer un soir\n\nT'étais une fille d'Asie\nAvec la pluie dans les souvenirs\n\nLes marchés de Mousson\nEt ce regard tourné vers l'avenir\nUne mère qui protégeait tout\nSans jamais demander grand-chose\nUne femme libre\nImpossible à faire entrer dans une pose\n\nAbba pour tes petits-enfants\nDes orchidées partout chez toi\n\nEt même les silences chez nous avaient encore un peu ta voix\nParfois j'me dis qu'les gens comme toi\nVivent plus fort mais moins longtemps\nEt ça m'met encore en colère\nEven now, encore trop souvent\n\nÉtoile filante\nYou came and changed everything around\nÉtoile brillante\nMême pas besoin d'lever les yeux la night\nOn savait même pas\nQu'on vivait quelque chose de rare\n\nUne mère, une mama\nUne femme, une sœur\nUne tante, une amie\nUne Abba aussi\nEt peut-être que certaines étoiles\nPartent jamais vraiment d'ici"
     },
     {
       "title": "Night Shortcuts",
       "description": "Un hommage aux amitiés queer nées dans les raccourcis chimiques, les malentendus improbables et les nuits inoubliables qui transforment des inconnus en famille choisie.",
       "spotify": {
-        "type": "track",
-        "id": "7wm2kmiRY2Q4H9FRAxPmw8"
+        "type": "album",
+        "id": "2fB0zFaOQVNpQBWoEiteCV"
       },
       "cover": "assets/images/video-stills/je-descends-ici.png",
       "visual": "assets/videos/night-shortcuts.mp4",
       "posterFromVideo": true,
-      "lyrics": ""
+      "lyrics": "A few nights\nThe same people\nAnd suddenly\nWe know everything about each other\n\nOne joke\nOne misunderstanding\n\"J'crois pas, non\"\nOne random \"wait, what?\"\nAnd somehow\nThat becomes a friendship\n\nWe took shortcuts through the city\nThrough the silence, through ourselves\nDes raccourcis de nuit\nD'autres versions of us\nWe never show in daylight\n\nNight shortcuts\nChemical hearts\nA few hours\nFeeling like years\nNight shortcuts\nAmis de nuit\nToo close, too fast\n\nPam-pa-dam-pa-dam\nSinging words that never existed\nPam-pa-dam-pa-dam\nPam-pa-dam-pa-dam\nNobody cares\nWe all sound like we know the song\nComme si on l'avait toujours connue\n\nThree weekends ago\nStrangers in the dark\nNow your names feel like memories\nSome people need decades\nNous, on a pris des raccourcis\n\nNight shortcuts\nChemical hearts\nDes milliers de pas on the dancefloor\nNight shortcuts\nAmis de nuit\nToo much tenderness\nFor only a few months\n\nHigh enough\nTo enter the ketaverse\nWhere everybody hugs longer\nLaughs louder\nAnd means it\nLà où les inconnus deviennent importants\n\nNight shortcuts\nNight shortcuts\nNight shortcuts\nLike the night pressed fast-forward\nOn human connection\nNight shortcuts\nChemical hearts\nDes inconnus hier\nAlmost family now\n\nMaybe we were always meant to find each other\nMaybe the shortcuts\nJust helped a little sooner"
+    },
+    {
+      "title": "Le prix du futur",
+      "description": "Avancer a un coût. On laisse des morceaux de soi en chemin — des visages, des versions de nous qu'on ne sera plus. Le futur se paie toujours en présent.",
+      "spotify": {
+        "type": "album",
+        "id": "6IG7Jdfe8OdllERBbizJzm"
+      },
+      "cover": "assets/images/video-stills/le-prix-du-futur.jpg",
+      "visual": "assets/videos/le-prix-du-futur.mp4",
+      "lyrics": "1976\nIls quittent l'Asie\nUn pays, une langue, une vie\nRecommencer encore, toujours\nMmmh\n\nIls ont grandi dans le fracas,sous un ciel en feu\n\nLes sirènes dans la nuit, nulle part où être chez eux\nChanger de terre, changer de voix, réapprendre jusqu'aux mots\nToujours repartir de zéro, même quand le monde dit non\nElle faisait danser la maison même quand tout pesait lourd\nDes plats chauds sur la table et de l'amour autour\nLe feu qui mijote la nuit pour le servir au matin\nShe gave you more than she had, never asking for anything\nElle donnait tout sans compter, même quand y avait plus rien\nTrois enfants dont un à porter, et pourtant le sourire au matin\nLui comptait les heures pour que le toit tienne droit\nLe prix du futur\nDidn't know how to love like that but he stayed, he tried\n\nHe carried more than he showed, toujours le poids sur le dos\nEntre deux façons d'aimer qu'ils n'arrivaient pas à traduire\nIls étaient jeunes, trop jeunes, but they held on\n\nThey paid the price of a future I didn't have to fight for\nIls ont payé le prix du futur et moi j'en vis encore\nFrom nothing into something, they carried us through it all\n\nJ'comprends deux langues sans y penser mais aucune vraiment comme eux\nMa génération vit sans guerre, la leur devait tout reconstruire\nSometimes I forget what it cost\n\nEst-ce que j'suis à la hauteur?\nLe prix du futur\nIls me l'ont laissé\nSans facture\nMmmh"
+    },
+    {
+      "title": "J'suis un mix de tout ça",
+      "description": "Je ne suis pas une seule chose. Je suis tout ce qui m'a traversé — les gens, les nuits, les manques. Un assemblage de fragments empruntés qui, ensemble, finissent par faire une voix.",
+      "spotify": {
+        "type": "album",
+        "id": "63TjqkTmcsUi2GnRZemA11"
+      },
+      "cover": "assets/images/video-stills/j-suis-un-mix-de-tout-ca.jpg",
+      "visual": "assets/videos/j-suis-un-mix-de-tout-ca.mp4",
+      "lyrics": "J'suis un mix de tout ça\nJ'suis un mix de tout ça\nMmmh, eh\n\nJ'ai grandi en pavillon mais l'ambiance venait d'ailleurs\n\nL'odeur d'la friture dans la maison\nRestait jusqu'au lendemain d'ailleurs\nLe samedi karaoké, le dimanche taekwondo\nLa semaine Kellogg's, Intermarché, le week-end feu dans l'grand bol\nBo Bun, Bánh cuốn, Bánh bao, bœuf loc lac\nQuand y'avait plus grand-chose à bouffer\nAvec mon frère c'était Mi Goi\nEncore aujourd'hui on en rigole\n\nKetchup Maggi sur les frites, nuoc mam mayo dans les nems\nChez nous même les sauces arrivaient pas à choisir un thème\nBánh mì dans une main, croque-monsieur dans l'autre\nOn n'avait peut-être pas grand-chose mais j'ai jamais manqué de rien\nBaume du Tigre sur chaque problème\nMal au dos, crâne, aux genoux même\nMa mère croyait qu'ça guérissait tout\nJ'pense même les factures EDF, c'est fou\n\nOn appelle tonton, tata même quand on connaît pas\nPendant qu'les autres disent juste \"bonjour\"\nNous on a grandi la famille direct, voilà\n\nLes bisous avec le nez, les copains trouvaient ça bizarre\nMoi j'pensais qu'c'était normal comme plein d'trucs dans mon histoire\n\nJ'comprends deux langues, normal j'ai deux palais\nCertains savent rouler les \"R\", moi j'sais rouler les nems\nJ'ai deux prénoms, deux façons d'voir le monde entier\nDes fois j'me demande encore dans quelle case faut me ranger\n\nUn mix de riz cantonais, un mix de riz au lait\nUn mix de karaoké français et de chansons du bled\nUn mix de traditions, un mix de générations\nUn mix de racines et de transmissions\nUn mix de ça, depuis le début j'suis comme ça\nJ'suis un mix de tout ça, alors depuis quand on a l'choix?\n\nUn mix de ça, depuis le début j'suis comme ça\nJ'suis un mix de tout ça, alors depuis quand on a l'choix?\n\nJ'suis un mix de tout ça\nJ'suis un mix de tout ça"
     }
   ],
   "diary": [
