@@ -32,7 +32,7 @@ const META_PIXEL_ID = "231554627793556";
 const SPOTIFY_PROFILE_URL = "https://open.spotify.com/intl-fr/artist/4T91cWzQpg31KoUXLNu3WB?si=jbLb-9FMSCOd-NLM3lJtng";
 // 3) Pre-save prochaine sortie : lien du pré-enregistrement (Distrokid,
 //    Feature.fm, Show.co, Laylo…). À remplir quand la sortie est calée.
-const PRESAVE_URL = "PRESAVE_URL";
+const PRESAVE_URL = "https://distrokid.com/hyperfollow/kvli41/one-more-star";
 // 4) Contact presse : email affiché dans le bloc Presse (bookings/médias).
 const PRESS_EMAIL = "hello@kov.li";
 // ============================================================
@@ -57,8 +57,8 @@ function spotifyUrl(track) {
 function getPaths(localeKey) {
   return localeKey === "fr"
     ? {
-        styles: "styles.css?v=20260706g",
-        script: "app.js?v=20260706g",
+        styles: "styles.css?v=20260706h",
+        script: "app.js?v=20260706h",
         heroVideo: "assets/videos/hero-memory.mp4",
         heroPoster: "assets/images/night-fragment-02.jpg",
         preview: `${siteUrl}/assets/images/preview.jpg`,
@@ -67,8 +67,8 @@ function getPaths(localeKey) {
         faviconBase: "assets/images",
       }
     : {
-        styles: "../styles.css?v=20260706g",
-        script: "../app.js?v=20260706g",
+        styles: "../styles.css?v=20260706h",
+        script: "../app.js?v=20260706h",
         heroVideo: "../assets/videos/hero-memory.mp4",
         heroPoster: "../assets/images/night-fragment-02.jpg",
         preview: `${siteUrl}/assets/images/preview.jpg`,
