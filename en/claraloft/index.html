@@ -167,15 +167,6 @@
       .embed-wrap { margin-top: clamp(26px, 4vw, 40px); border-radius: 12px; overflow: hidden; }
       .embed-wrap iframe { display: block; width: 100%; border: 0; }
 
-      .platforms { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(26px, 4vw, 38px); }
-      .platforms a {
-        display: inline-flex; align-items: center; gap: 9px;
-        padding: 13px 22px; border: 1px solid var(--line); border-radius: 999px;
-        text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em;
-        transition: border-color .2s, color .2s, transform .2s;
-      }
-      .platforms a:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
-      .platforms a .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--heat); }
 
       .contact-lines { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 18px; text-align: left; }
       .contact-lines li { padding: 16px 20px; border: 1px solid var(--line); border-radius: 5px; }
@@ -188,7 +179,7 @@
         color: var(--text); text-decoration: none; word-break: break-all;
       }
       .contact-lines .addr:hover { color: var(--amber); }
-      @media (min-width: 700px) { .contact-lines { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 700px) { .contact-lines { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); } }
     </style>
   </head>
   <body>
@@ -269,11 +260,6 @@
         </div>
         <div class="embed-wrap reveal" style="margin-top:14px;">
           <iframe src="https://open.spotify.com/embed/album/5VUDFd85e1eL1O4GRzEI3Y?utm_source=generator&amp;theme=0" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Back to Motion — KØVLI feat. Clara LØFT"></iframe>
-        </div>
-        <div class="platforms reveal">
-          <a href="https://open.spotify.com/artist/5YOYBweuEeZpBsNy2lRauE" target="_blank" rel="noopener"><span class="dot"></span>Spotify</a>
-          <a href="https://www.instagram.com/loft.clara/" target="_blank" rel="noopener"><span class="dot"></span>Instagram</a>
-          <a href="https://www.deezer.com/artist/7588966" target="_blank" rel="noopener"><span class="dot"></span>Deezer</a>
         </div>
       </div>
     </section>
@@ -359,6 +345,7 @@
         <!--email_off--><ul class="contact-lines reveal">
           <li><span class="role">Artist contact — Clara LØFT</span><a class="addr" href="mailto:claraloft@kov.li">claraloft@kov.li</a></li>
           <li><span class="role">Production &amp; booking — KØVLI</span><a class="addr" href="mailto:hello@kov.li">hello@kov.li</a></li>
+          <li><span class="role">Instagram</span><a class="addr" href="https://www.instagram.com/loft.clara/" target="_blank" rel="noopener">@loft.clara</a></li>
         </ul><!--/email_off-->
         <p class="also reveal">Booking · press · collaborations · features.<br />The full world at <a href="https://kov.li/en/">kov.li</a></p>
       </div>
