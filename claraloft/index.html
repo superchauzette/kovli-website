@@ -190,6 +190,15 @@
       }
       .contact-lines .addr:hover { color: var(--amber); }
       @media (min-width: 700px) { .contact-lines { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); } }
+      .profile-link {
+        margin: 20px 0 0; font-size: .95rem; color: var(--muted);
+      }
+      .profile-link a {
+        color: var(--text); text-decoration: none;
+        border-bottom: 1px solid rgba(214,148,85,.5); padding-bottom: 2px;
+        transition: color .2s, border-color .2s; word-break: break-all;
+      }
+      .profile-link a:hover { color: var(--amber); border-color: var(--amber); }
     </style>
   </head>
   <body>
@@ -267,12 +276,10 @@
       <div class="wrap">
         <p class="kicker hot reveal">Écouter</p>
         <h2 class="lead reveal">Sur <em>les plateformes.</em></h2>
-        <div class="embed-wrap reveal">
-          <iframe src="https://open.spotify.com/embed/artist/5YOYBweuEeZpBsNy2lRauE?utm_source=generator&amp;theme=0" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Clara LØFT sur Spotify"></iframe>
-        </div>
         <div class="embed-wrap reveal" style="margin-top:14px;">
           <iframe src="https://open.spotify.com/embed/album/5VUDFd85e1eL1O4GRzEI3Y?utm_source=generator&amp;theme=0" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Back to Motion — KØVLI feat. Clara LØFT"></iframe>
         </div>
+        <p class="profile-link reveal">Profil Spotify officiel de Clara LØFT&nbsp;: <a href="https://open.spotify.com/artist/5YOYBweuEeZpBsNy2lRauE" target="_blank" rel="noopener">open.spotify.com/artist/5YOYBweuEeZpBsNy2lRauE</a></p>
       </div>
     </section>
 
