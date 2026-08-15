@@ -166,10 +166,12 @@
       .release-list li:last-child { border-bottom: 0; }
       .release-list a {
         display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
-        gap: 6px 18px; padding: 17px 2px; text-decoration: none; transition: color .2s, padding-left .25s;
+        gap: 6px 18px; padding: 17px 2px; text-decoration: none; transition: color .2s;
       }
-      .release-list a:hover { color: var(--amber); padding-left: 8px; }
-      .release-title { font-family: var(--serif); font-size: clamp(1.25rem, 3.4vw, 1.75rem); }
+      .release-list a:hover { color: var(--amber); }
+      .release-list a:hover .release-title { transform: translateX(8px); }
+      .release-title { font-family: var(--serif); font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+        transition: transform .25s cubic-bezier(.2,.8,.2,1); }
       .release-meta { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
 
       .embed-wrap { margin-top: clamp(26px, 4vw, 40px); border-radius: 12px; overflow: hidden; }
