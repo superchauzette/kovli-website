@@ -139,6 +139,64 @@
       .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
       .reveal.in { opacity: 1; transform: none; }
       @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .grain, .duo-media img { animation: none; } }
+
+      /* --- Bloc verification : credits, sorties, plateformes, contact --- */
+      .panel {
+        border: 1px solid var(--line); border-radius: 6px;
+        padding: clamp(22px, 4vw, 38px);
+        background: rgba(255, 255, 255, .022);
+      }
+      .credit-lead { margin: 0 0 22px; font-size: clamp(1rem, 2.2vw, 1.18rem); color: var(--text); }
+      .credit-lead strong { font-weight: 700; }
+      .credit-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+      .credit-list li {
+        display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+        padding-bottom: 14px; border-bottom: 1px solid var(--line);
+        font-size: clamp(1.05rem, 2.4vw, 1.3rem); font-weight: 600; letter-spacing: .01em;
+      }
+      .credit-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+      .credit-list .lbl {
+        font-family: var(--sans); font-size: .72rem; font-weight: 700;
+        letter-spacing: .18em; text-transform: uppercase; color: var(--amber);
+      }
+      .credit-note { margin: 22px 0 0; font-size: .92rem; color: var(--muted); }
+
+      .release-list { list-style: none; margin: 0; padding: 0; }
+      .release-list li { border-bottom: 1px solid var(--line); }
+      .release-list li:last-child { border-bottom: 0; }
+      .release-list a {
+        display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+        gap: 6px 18px; padding: 17px 2px; text-decoration: none; transition: color .2s, padding-left .25s;
+      }
+      .release-list a:hover { color: var(--amber); padding-left: 8px; }
+      .release-title { font-family: var(--serif); font-size: clamp(1.25rem, 3.4vw, 1.75rem); }
+      .release-meta { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+
+      .embed-wrap { margin-top: clamp(26px, 4vw, 40px); border-radius: 12px; overflow: hidden; }
+      .embed-wrap iframe { display: block; width: 100%; border: 0; }
+
+      .platforms { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(26px, 4vw, 38px); }
+      .platforms a {
+        display: inline-flex; align-items: center; gap: 9px;
+        padding: 13px 22px; border: 1px solid var(--line); border-radius: 999px;
+        text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em;
+        transition: border-color .2s, color .2s, transform .2s;
+      }
+      .platforms a:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+      .platforms a .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--heat); }
+
+      .contact-lines { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 18px; text-align: left; }
+      .contact-lines li { padding: 16px 20px; border: 1px solid var(--line); border-radius: 5px; }
+      .contact-lines .role {
+        display: block; margin-bottom: 6px;
+        font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--soft);
+      }
+      .contact-lines .addr {
+        font-family: var(--sans); font-size: clamp(1rem, 2.6vw, 1.25rem); font-weight: 600;
+        color: var(--text); text-decoration: none; word-break: break-all;
+      }
+      .contact-lines .addr:hover { color: var(--amber); }
+      @media (min-width: 700px) { .contact-lines { grid-template-columns: 1fr 1fr; } }
     </style>
   </head>
   <body>
@@ -176,6 +234,53 @@
         </div>
         <div class="tags reveal">
           <span>Voix</span><span>Trois langues</span><span>Paris · after hours</span><span>Feu &amp; mouvement</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDITS -->
+    <section id="credits">
+      <div class="wrap">
+        <p class="kicker hot reveal">Crédits &amp; production</p>
+        <h2 class="lead reveal">La musique, <em>et qui la fait.</em></h2>
+        <div class="panel reveal" style="margin-top: clamp(26px,4vw,42px);">
+          <p class="credit-lead"><strong>Clara LØFT</strong> est l’artiste featuring des sorties de <strong>KØVLI</strong>. Ses titres sont écrits, produits et publiés par KØVLI.</p>
+          <ul class="credit-list">
+            <li><span class="lbl">Produced by</span> KØVLI</li>
+            <li><span class="lbl">Written &amp; produced by</span> KØVLI</li>
+            <li><span class="lbl">Distributed via</span> DistroKid</li>
+          </ul>
+          <!--email_off--><p class="credit-note">Producer credit officiel sur DistroKid : KØVLI. Contact production : hello@kov.li</p><!--/email_off-->
+        </div>
+      </div>
+    </section>
+
+    <!-- RELEASES -->
+    <section id="releases">
+      <div class="wrap">
+        <p class="kicker reveal">Sorties</p>
+        <h2 class="lead reveal">Quatre nuits <em>en commun.</em></h2>
+        <ul class="release-list reveal" style="margin-top: clamp(22px,4vw,36px);">
+          <li><a href="https://open.spotify.com/album/5VUDFd85e1eL1O4GRzEI3Y" target="_blank" rel="noopener"><span class="release-title">Back to Motion</span><span class="release-meta">KØVLI feat. Clara LØFT</span></a></li>
+          <li><a href="https://open.spotify.com/album/6oMNaAVmms5rhcCTOjqdQT" target="_blank" rel="noopener"><span class="release-title">Where The Poto At?</span><span class="release-meta">KØVLI feat. Clara LØFT</span></a></li>
+          <li><a href="https://open.spotify.com/album/5OIstNkizi6UjtrrfWF386" target="_blank" rel="noopener"><span class="release-title">We Said One Drink...</span><span class="release-meta">KØVLI feat. Clara LØFT</span></a></li>
+          <li><a href="https://open.spotify.com/album/1mr4cfAKZ8M70jhtVnRpKq" target="_blank" rel="noopener"><span class="release-title">En Accéléré</span><span class="release-meta">KØVLI feat. Clara LØFT</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section id="listen">
+      <div class="wrap">
+        <p class="kicker hot reveal">Écouter</p>
+        <h2 class="lead reveal">Sur <em>les plateformes.</em></h2>
+        <div class="embed-wrap reveal">
+          <iframe src="https://open.spotify.com/embed/artist/5YOYBweuEeZpBsNy2lRauE?utm_source=generator&amp;theme=0" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Clara LØFT sur Spotify"></iframe>
+        </div>
+        <div class="platforms reveal">
+          <a href="https://open.spotify.com/artist/5YOYBweuEeZpBsNy2lRauE" target="_blank" rel="noopener"><span class="dot"></span>Spotify</a>
+          <a href="https://www.instagram.com/loft.clara/" target="_blank" rel="noopener"><span class="dot"></span>Instagram</a>
+          <a href="https://www.deezer.com/artist/7588966" target="_blank" rel="noopener"><span class="dot"></span>Deezer</a>
         </div>
       </div>
     </section>
@@ -264,8 +369,11 @@
       <div class="wrap">
         <p class="kicker hot reveal">Contact</p>
         <h2 class="reveal">Écrire à Clara</h2>
-        <a class="mail reveal" href="mailto:claraloft@kov.li">claraloft@kov.li</a>
-        <p class="also reveal">Booking · presse · collaborations · feats.<br />L'univers complet sur <a href="https://kov.li">kov.li</a></p>
+        <!--email_off--><ul class="contact-lines reveal">
+          <li><span class="role">Contact artiste — Clara LØFT</span><a class="addr" href="mailto:claraloft@kov.li">claraloft@kov.li</a></li>
+          <li><span class="role">Production &amp; booking — KØVLI</span><a class="addr" href="mailto:hello@kov.li">hello@kov.li</a></li>
+        </ul><!--/email_off-->
+        <p class="also reveal">Booking · presse · collaborations · feats.<br />L’univers complet sur <a href="https://kov.li">kov.li</a></p>
       </div>
     </section>
 

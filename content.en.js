@@ -93,6 +93,7 @@ export default {
       "Together, they create tension, release, and everything in between."
     ],
     "featureEmpty": "Features will surface when the story asks for them.",
+    "pageLink": "Her page, her releases, her credits →",
     "galleryAltPrefix": "Clara LØFT",
     "openImage": "Open image",
     "portraitFallback": "Clara LØFT portrait"

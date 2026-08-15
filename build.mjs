@@ -495,6 +495,7 @@ function buildPage(localeKey) {
           <h2>${escapeHtml(content.clara.title)}</h2>
           ${content.clara.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <div id="clara-tracks" class="feature-list">${renderClaraTracks(content)}</div>
+          <p class="clara-page-link"><a class="text-link" href="${localeKey === "en" ? "/en/claraloft/" : "/claraloft/"}">${escapeHtml(content.clara.pageLink)}</a></p>
         </div>
         <div id="clara-gallery" class="clara-visual clara-gallery reveal" data-parallax="soft">
           ${content.claraGallery.map((item, index) => renderClaraPhoto(item, index, localeKey, content)).join("")}
@@ -578,6 +579,6 @@ await fs.writeFile(path.join(rootDir, "index.html"), buildPage("fr"));
 await fs.writeFile(path.join(rootDir, "en", "index.html"), buildPage("en"));
 await fs.writeFile(
   path.join(rootDir, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n  <url>\n    <loc>${siteUrl}/</loc>\n    <xhtml:link rel="alternate" hreflang="fr" href="${siteUrl}/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/en/" />\n  </url>\n  <url>\n    <loc>${siteUrl}/en/</loc>\n    <xhtml:link rel="alternate" hreflang="fr" href="${siteUrl}/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/en/" />\n  </url>\n</urlset>\n`
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n  <url>\n    <loc>${siteUrl}/</loc>\n    <xhtml:link rel="alternate" hreflang="fr" href="${siteUrl}/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/en/" />\n  </url>\n  <url>\n    <loc>${siteUrl}/en/</loc>\n    <xhtml:link rel="alternate" hreflang="fr" href="${siteUrl}/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/en/" />\n  </url>\n  <url>\n    <loc>${siteUrl}/claraloft/</loc>\n    <xhtml:link rel="alternate" hreflang="fr" href="${siteUrl}/claraloft/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/en/claraloft/" />\n  </url>\n  <url>\n    <loc>${siteUrl}/en/claraloft/</loc>\n    <xhtml:link rel="alternate" hreflang="fr" href="${siteUrl}/claraloft/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/en/claraloft/" />\n  </url>\n</urlset>\n`
 );
 await fs.writeFile(path.join(rootDir, "robots.txt"), `Sitemap: ${siteUrl}/sitemap.xml\n`);

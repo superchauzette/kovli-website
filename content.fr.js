@@ -93,6 +93,7 @@ export default {
       "Ensemble, ils créent tension, relâchement... et tout ce qu'il y a entre les deux."
     ],
     "featureEmpty": "Les feats apparaîtront quand l'histoire l'exigera.",
+    "pageLink": "Sa page, ses sorties, ses crédits →",
     "galleryAltPrefix": "Clara LØFT",
     "openImage": "Ouvrir l'image",
     "portraitFallback": "Portrait de Clara LØFT"
