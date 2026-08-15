@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="CLARA LØFT — elle ne se fond pas dans le décor, elle change la tonalité. Latina-américaine, instinctive, libre. La feat qui met le feu à l'univers de KØVLI." />
+    <meta name="theme-color" content="#080604" />
+    <meta property="og:title" content="CLARA LØFT" />
+    <meta property="og:description" content="Elle ne se fond pas dans le décor. Elle change la tonalité." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="https://kov.li/assets/images/clara-portrait-1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>CLARA LØFT</title>
+    <style>
+      :root {
+        --black: #080604;
+        --ink: #0d0a08;
+        --text: #f3ede4;
+        --muted: rgba(243, 237, 228, 0.62);
+        --soft: rgba(243, 237, 228, 0.4);
+        --line: rgba(255, 255, 255, 0.12);
+        --amber: #d69455;
+        --wine: #b0454f;
+        --heat: linear-gradient(100deg, #d69455, #b0454f);
+        --serif: Georgia, "Times New Roman", serif;
+        --sans: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --max: 1180px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--black);
+        color: var(--text);
+        font-family: var(--sans);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; }
+
+      /* grain */
+      .grain {
+        position: fixed; inset: 0; z-index: 90; pointer-events: none;
+        opacity: 0.16; mix-blend-mode: soft-light;
+        background-image: repeating-radial-gradient(circle at 17% 29%, rgba(255,255,255,.2) 0 1px, transparent 1px 4px);
+        background-size: 210px 210px;
+        animation: grain 6s steps(3) infinite;
+      }
+      @keyframes grain { 0%,100%{background-position:0 0} 33%{background-position:-9px 7px} 66%{background-position:7px -9px} }
+
+      .wrap { width: min(100%, var(--max)); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+      .kicker { margin: 0; font-size: .72rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--soft); }
+      .kicker.hot { background: var(--heat); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+      /* top bar */
+      .top {
+        position: absolute; z-index: 20; top: 0; left: 0; right: 0;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 22px clamp(20px, 5vw, 48px);
+      }
+      .top a { text-decoration: none; font-weight: 700; letter-spacing: .16em; font-size: .74rem; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+      .top a:hover { color: var(--text); }
+      .top .brand { font-family: var(--serif); letter-spacing: .28em; color: var(--text); }
+
+      /* HERO */
+      .hero { position: relative; min-height: 100svh; display: grid; align-items: end; isolation: isolate; overflow: hidden; }
+      .hero-img { position: absolute; inset: 0; z-index: -2; background: #000 center/cover no-repeat; }
+      .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(.92) contrast(1.03); }
+      .hero-shade { position: absolute; inset: 0; z-index: -1;
+        background: linear-gradient(180deg, rgba(8,6,4,.35) 0%, rgba(8,6,4,.1) 32%, rgba(8,6,4,.85) 82%, rgba(8,6,4,1) 100%),
+                    radial-gradient(70% 60% at 80% 20%, rgba(214,148,85,.18), transparent 60%); }
+      .hero-content { padding: 0 clamp(20px, 5vw, 48px) clamp(40px, 8vh, 90px); }
+      .hero h1 { margin: 14px 0 0; font-family: var(--serif); font-weight: 400; line-height: .9;
+        font-size: clamp(3.6rem, 17vw, 12rem); letter-spacing: -.01em; }
+      .hero .sub { margin: 22px 0 0; max-width: 30ch; font-size: clamp(1.05rem, 2.6vw, 1.4rem); color: var(--text); }
+      .scrollcue { margin-top: 34px; display: inline-flex; align-items: center; gap: 12px; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--soft); }
+      .scrollcue::before { content: ""; width: 42px; height: 1px; background: var(--soft); }
+
+      /* sections */
+      section { position: relative; padding: clamp(72px, 12vh, 150px) 0; }
+      .lead { font-family: var(--serif); font-weight: 400; line-height: 1.02;
+        font-size: clamp(2.1rem, 6.5vw, 4.6rem); margin: 18px 0 0; max-width: 16ch; }
+      .lead em { font-style: italic; background: var(--heat); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .body-copy p { margin: 0 0 20px; color: var(--muted); font-size: clamp(1rem, 2.2vw, 1.15rem); max-width: 58ch; }
+      .body-copy p strong { color: var(--text); font-weight: 600; }
+
+      .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+      .tags span { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+      /* two-col */
+      .duo { display: grid; gap: clamp(28px, 5vw, 64px); align-items: center; }
+      @media (min-width: 860px) { .duo { grid-template-columns: 1fr 1fr; } .duo.rev > .duo-media { order: -1; } }
+      .duo-media { position: relative; border-radius: 4px; overflow: hidden; }
+      .duo-media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
+      .duo-media:hover img { transform: scale(1.04); }
+      .duo-media figcaption { position: absolute; left: 14px; bottom: 12px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.85); text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+
+      /* full-bleed image band */
+      .band { position: relative; height: clamp(60vh, 80vh, 900px); overflow: hidden; isolation: isolate; }
+      .band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+      .band .band-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(8,6,4,.9), rgba(8,6,4,.15) 55%, rgba(8,6,4,.55)); }
+      .band .band-txt { position: absolute; left: 0; right: 0; bottom: 0; padding: clamp(28px,6vw,64px); }
+      .band .band-txt h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 5vw, 3.4rem); margin: 10px 0 0; max-width: 20ch; }
+
+      /* ambiguity pull quote */
+      .pull { text-align: center; }
+      .pull blockquote { margin: 0 auto; max-width: 22ch; font-family: var(--serif); font-style: italic;
+        font-size: clamp(1.9rem, 6vw, 3.8rem); line-height: 1.08; }
+      .pull .attr { margin-top: 26px; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); }
+
+      /* gallery */
+      .gallery { columns: 2; column-gap: 12px; }
+      @media (min-width: 760px) { .gallery { columns: 3; column-gap: 16px; } }
+      .gallery img { width: 100%; margin-bottom: 12px; border-radius: 3px; break-inside: avoid; filter: saturate(.9) contrast(1.02); }
+      @media (min-width: 760px) { .gallery img { margin-bottom: 16px; } }
+
+      /* contact */
+      .contact { text-align: center; }
+      .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 8vw, 5rem); margin: 14px 0 0; }
+      .mail {
+        display: inline-flex; align-items: center; gap: 12px; margin-top: 34px;
+        padding: 16px 30px; border-radius: 999px; text-decoration: none; font-weight: 700;
+        letter-spacing: .04em; font-size: 1.05rem; color: #170d08;
+        background: var(--heat); box-shadow: 0 14px 34px rgba(0,0,0,.5);
+        transition: transform .2s ease, box-shadow .3s ease;
+      }
+      .mail:hover { transform: translateY(-3px); box-shadow: 0 20px 46px rgba(0,0,0,.6); }
+      .contact .also { margin-top: 22px; font-size: .82rem; color: var(--soft); }
+      .contact .also a { color: var(--amber); text-decoration: none; }
+
+      footer { padding: 40px 0 60px; text-align: center; color: var(--soft); font-size: .78rem; letter-spacing: .1em; }
+      footer a { color: var(--amber); text-decoration: none; }
+
+      /* reveal */
+      .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+      .reveal.in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .grain, .duo-media img { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top">
+      <a class="brand" href="#top">CLARA&nbsp;LØFT</a>
+      <a href="https://kov.li">← KØVLI</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-img" aria-hidden="true"><img src="../assets/images/clara-portrait-1.jpg" alt="" /></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="kicker hot">KØVLI · feat.</p>
+        <h1>CLARA<br />LØFT</h1>
+        <p class="sub">Elle ne se fond pas dans le décor.<br />Elle change la tonalité.</p>
+        <div class="scrollcue">Descends</div>
+      </div>
+    </section>
+
+    <!-- ESSENCE -->
+    <section>
+      <div class="wrap">
+        <p class="kicker reveal">Qui elle est</p>
+        <h2 class="lead reveal">Instinctive. Libre.<br /><em>Sans concession.</em></h2>
+        <div class="body-copy" style="margin-top: 34px;">
+          <p class="reveal">Latina-américaine. Elle navigue entre trois langues comme si c'en était une seule — sans prévenir, sans demander. Là où d'autres cherchent leur place, elle prend la pièce.</p>
+          <p class="reveal">Il n'existe pas de version figée d'elle. Seulement ce qui se passe quand elle arrive.</p>
+        </div>
+        <div class="tags reveal">
+          <span>Voix</span><span>Trois langues</span><span>Paris · after hours</span><span>Feu &amp; mouvement</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKSTORY band -->
+    <div class="band reveal">
+      <img src="../assets/images/clara-portrait-5.jpg" alt="Portrait de Clara LØFT" style="object-position: 50% 28%;" />
+      <div class="band-shade" aria-hidden="true"></div>
+      <div class="band-txt wrap" style="padding-left:0;padding-right:0;">
+        <div class="wrap">
+          <p class="kicker hot">D'où elle vient</p>
+          <h3>Personne ne sait vraiment. Elle dit São Paulo un soir, Mexico le lendemain — et personne ne la corrige.</h3>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap body-copy">
+        <p class="reveal">Ce qui est sûr : elle est entrée dans la nuit parisienne comme on entre sans frapper, et plus rien n'a sonné pareil. Elle a appris la musique dans des cuisines, des arrière-salles, des fêtes qui ne finissaient pas — le genre de formation qui tient sur aucun diplôme.</p>
+        <p class="reveal"><strong>Elle apporte la chaleur, le mouvement, quelque chose d'un peu incontrôlable.</strong> Une note plus haut, un pas de côté, et tout un morceau bascule.</p>
+      </div>
+    </section>
+
+    <!-- KØVLI & CLARA -->
+    <section>
+      <div class="wrap">
+        <p class="kicker reveal" style="text-align:center;">KØVLI &amp; CLARA</p>
+        <h2 class="lead reveal" style="margin-left:auto;margin-right:auto;text-align:center;max-width:20ch;">Deux pôles. <em>Une même nuit.</em></h2>
+      </div>
+      <div class="wrap" style="margin-top: clamp(40px,7vw,72px);">
+        <div class="duo">
+          <div class="body-copy">
+            <p class="reveal">On les a rencontrés le même hiver, dans le même sous-sol. Depuis, on ne sait plus les imaginer séparés.</p>
+            <p class="reveal">Là où KØVLI dérive, elle met le feu. Il refroidit, elle réchauffe. Ensemble ils créent la tension, le relâchement, et tout ce qu'il y a entre les deux.</p>
+          </div>
+          <figure class="duo-media reveal">
+            <img src="../assets/images/clara-kovli-paris.jpg" alt="KØVLI et Clara LØFT dans les rues de Paris" />
+            <figcaption>Paris, à la nuit tombée</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMBIGUITY pull quote -->
+    <section class="pull">
+      <div class="wrap">
+        <p class="kicker hot reveal">Ce qui les lie</p>
+        <blockquote class="reveal">« Personne n'a jamais su. Eux non plus, peut-être. »</blockquote>
+        <p class="attr reveal">— et c'est très bien comme ça</p>
+        <div class="body-copy reveal" style="margin: 40px auto 0; max-width: 60ch;">
+          <p style="max-width:none;">Meilleurs amis. Complices. Autre chose. On les a vus rentrer ensemble au petit matin. On les a vus s'ignorer pendant des semaines. Ce qui les relie n'a pas de nom — et ils préfèrent ça. Le reste ne regarde personne.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ON STAGE band -->
+    <div class="band reveal">
+      <img src="../assets/images/clara-kovli-caveau.jpg" alt="KØVLI au micro, Clara aux platines, Le Caveau, Paris" />
+      <div class="band-shade" aria-hidden="true"></div>
+      <div class="band-txt">
+        <div class="wrap" style="padding-left:0;padding-right:0;">
+          <p class="kicker hot">Sur scène</p>
+          <h3>Une voix qui descend, une autre qui monte. Le Caveau, Paris — et la salle qui ne redescend pas.</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section>
+      <div class="wrap">
+        <p class="kicker reveal">Fragments</p>
+        <h2 class="lead reveal" style="margin-bottom: clamp(30px,5vw,52px);">Ce qui reste <em>d'elle.</em></h2>
+        <div class="gallery reveal">
+          <img src="../assets/images/clara-portrait-2.jpg" alt="Clara LØFT" loading="lazy" />
+          <img src="../assets/images/clara-kovli-studio.jpg" alt="Clara LØFT et KØVLI en studio" loading="lazy" />
+          <img src="../assets/images/clara-portrait-4.jpg" alt="Clara LØFT" loading="lazy" />
+          <img src="../assets/images/clara-portrait-5.jpg" alt="Clara LØFT" loading="lazy" />
+          <img src="../assets/images/clara-kovli-studio-work.jpg" alt="Clara LØFT et KØVLI, séance de travail" loading="lazy" />
+          <img src="../assets/images/clara-portrait-3.jpg" alt="Clara LØFT" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <div class="wrap">
+        <p class="kicker hot reveal">Contact</p>
+        <h2 class="reveal">Écrire à Clara</h2>
+        <a class="mail reveal" href="mailto:claraloft@kov.li">claraloft@kov.li</a>
+        <p class="also reveal">Booking · presse · collaborations · feats.<br />L'univers complet sur <a href="https://kov.li">kov.li</a></p>
+      </div>
+    </section>
+
+    <footer>
+      CLARA LØFT · <a href="https://kov.li">KØVLI</a> — Paris, after hours
+    </footer>
+
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(function (e) { io.observe(e); });
+      })();
+    </script>
+  </body>
+</html>

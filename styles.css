@@ -29,10 +29,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(123, 183, 201, 0.12), transparent 28rem),
-    radial-gradient(circle at 88% 26%, rgba(157, 57, 69, 0.1), transparent 24rem),
-    linear-gradient(180deg, #050505 0%, #0b0b0c 38%, #050505 100%);
+  background: transparent;
   color: var(--text);
   font-family: var(--sans);
   letter-spacing: 0;
@@ -1957,4 +1954,45 @@ body.nav-open .nav-toggle span:nth-child(3) {
   border-radius: 10px;
   background: #000;
   display: block;
+}
+
+
+/* --- Fond « Nighty night » ------------------------------------------------
+ * Reprend la palette du preset ShaderGradient du même nom (#606080 / #8d7dca
+ * / #212121). Rendu en dégradés animés et non en WebGL : ce site est en
+ * vanilla et pèse 16 Ko de JS ; three.js + React lui en ajouteraient ~700.
+ * La dérive est lente (40 s) et s'arrête pour qui demande moins d'animations.
+ */
+.nighty-night {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(123, 183, 201, 0.12), transparent 28rem),
+    radial-gradient(circle at 88% 26%, rgba(157, 57, 69, 0.1), transparent 24rem),
+    linear-gradient(180deg, #050505 0%, #0b0b0c 38%, #050505 100%);
+}
+
+.nighty-night::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(46% 38% at 24% 28%, rgba(141, 125, 202, 0.62), transparent 68%),
+    radial-gradient(42% 34% at 76% 60%, rgba(96, 96, 128, 0.58), transparent 70%),
+    radial-gradient(60% 48% at 50% 104%, rgba(33, 33, 33, 0.9), transparent 72%);
+  filter: blur(52px);
+  animation: nighty-drift 40s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes nighty-drift {
+  from { transform: translate3d(-3%, -2%, 0) scale(1.12); }
+  to   { transform: translate3d(3%, 2%, 0) scale(1.24); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nighty-night::before { animation: none; }
 }

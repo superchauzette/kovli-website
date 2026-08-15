@@ -369,6 +369,7 @@ function buildPage(localeKey) {
     <link rel="stylesheet" href="${paths.styles}" />
   </head>
   <body>
+    <div class="nighty-night" aria-hidden="true"></div>
     <div class="site-noise" aria-hidden="true"></div>
     <header class="topbar" aria-label="Primary">
       <a class="wordmark" href="#top" aria-label="KØVLI home">KØVLI</a>
