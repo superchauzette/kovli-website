@@ -46,7 +46,7 @@
       src="https://www.facebook.com/tr?id=231554627793556&ev=PageView&noscript=1" /></noscript>
     <!-- ===== FIN META PIXEL ===== -->
     <link rel="preload" href="../assets/images/night-fragment-02.jpg" as="image" />
-    <link rel="stylesheet" href="../styles.css?v=20260706h" />
+    <link rel="stylesheet" href="../styles.css?v=20260824a" />
   </head>
   <body>
     <div class="nighty-night" aria-hidden="true"></div>
@@ -119,16 +119,16 @@
       <h2 class="capture-title">Stay in the night.</h2>
       <p class="capture-subtitle">Leave your email. Whatever comes next passes through here.</p>
 
-      <!-- EMAIL_FORM_EMBED : formulaire Brevo (liste Kovli, double opt-in) -->
-      <form class="capture-form" id="capture-form" method="POST" action="https://c4523f92.sibforms.com/serve/MUIFAKdSp-dSIRmHZy9kenj-AG9udCtS-2-gp-cjR0MwsfWOBiHeo6xUGwks_wXgMA7AGTrjhgSn5bIxWDCOcrRQgQKLPtPYh7W5TL9ZMuMKBAnnG7OIN4y91DcxF47fSWJ7-lFUidKdOgifAv4SOjZ_QTadZ4fSnOx0K_yXxuzDL07_k0L6kJa_xPMJW-GkKl1RiNYfAMHZ8nnFpA==">
+      <!-- EMAIL_FORM_EMBED : Cloudflare Pages Function -> audience Resend "KOVLI - Newsletter" -->
+      <form class="capture-form" id="capture-form" method="POST" action="/api/subscribe">
         <input class="capture-input" type="email" name="EMAIL" inputmode="email" autocomplete="email"
           placeholder="you@email.com" aria-label="you@email.com" required />
         <button class="button button-primary capture-button" type="submit">Enter</button>
         <input class="capture-hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="locale" value="en" />
-        <input type="hidden" name="html_type" value="simple" />
       </form>
       <p class="capture-success" data-capture-success hidden>Almost there. Confirm your subscription via the email we just sent you.</p>
+      <p class="capture-error" data-capture-error hidden>Could not sign you up right now. Please try again in a moment.</p>
       <p class="capture-note">No noise. Only the nights that matter. Leave whenever you want.</p>
     </div>
   
@@ -1675,6 +1675,6 @@
       <p id="image-lightbox-caption"></p>
     </dialog>
 
-    <script src="../app.js?v=20260706h"></script>
+    <script src="../app.js?v=20260824a"></script>
   </body>
 </html>

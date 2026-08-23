@@ -494,12 +494,13 @@ const bindTextScramble = () => {
   window.setTimeout(() => requestAnimationFrame(tick), 240);
 };
 
-// Formulaire capture Brevo : envoi no-cors (on reste sur la page) + message inline.
+// Formulaire capture : POST same-origin vers /api/subscribe (-> Resend).
+// Same-origin = on lit la reponse, donc plus d'echec silencieux.
 const bindCaptureForm = () => {
   const form = document.getElementById("capture-form");
   if (!form) return;
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     // Honeypot : si ce champ est rempli, c'est un bot -> on ignore silencieusement.
     if (form.querySelector('[name="email_address_check"]')?.value) return;
@@ -509,17 +510,30 @@ const bindCaptureForm = () => {
       return;
     }
 
-    fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      mode: "no-cors",
-    }).catch(() => {});
-
     const card = form.closest(".capture-card");
-    form.hidden = true;
     const note = card?.querySelector(".capture-note");
-    if (note) note.hidden = true;
     const success = card?.querySelector("[data-capture-success]");
+    const error = card?.querySelector("[data-capture-error]");
+    const button = form.querySelector("button[type=submit]");
+    if (button) button.disabled = true;
+    if (error) error.hidden = true;
+
+    let ok = false;
+    try {
+      const res = await fetch(form.action, { method: "POST", body: new FormData(form) });
+      ok = res.ok;
+    } catch {
+      ok = false;
+    }
+
+    if (button) button.disabled = false;
+    if (!ok) {
+      if (error) error.hidden = false;
+      return;
+    }
+
+    form.hidden = true;
+    if (note) note.hidden = true;
     if (success) success.hidden = false;
   });
 };

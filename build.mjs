@@ -57,8 +57,8 @@ function spotifyUrl(track) {
 function getPaths(localeKey) {
   return localeKey === "fr"
     ? {
-        styles: "styles.css?v=20260706h",
-        script: "app.js?v=20260706h",
+        styles: "styles.css?v=20260824a",
+        script: "app.js?v=20260824a",
         heroVideo: "assets/videos/hero-memory.mp4",
         heroPoster: "assets/images/night-fragment-02.jpg",
         preview: `${siteUrl}/assets/images/preview.jpg`,
@@ -67,8 +67,8 @@ function getPaths(localeKey) {
         faviconBase: "assets/images",
       }
     : {
-        styles: "../styles.css?v=20260706h",
-        script: "../app.js?v=20260706h",
+        styles: "../styles.css?v=20260824a",
+        script: "../app.js?v=20260824a",
         heroVideo: "../assets/videos/hero-memory.mp4",
         heroPoster: "../assets/images/night-fragment-02.jpg",
         preview: `${siteUrl}/assets/images/preview.jpg`,
@@ -269,10 +269,10 @@ function nlToHtml(value) {
   return escapeHtml(value).replace(/\n/g, "<br />");
 }
 
-// Bloc capture email — formulaire Brevo (liste "Kovli", double opt-in).
-// L'action POST pointe vers l'endpoint sibforms de Brevo ; app.js l'envoie en
-// fetch no-cors pour rester sur la page et afficher un message inline.
-const BREVO_FORM_ACTION = "https://c4523f92.sibforms.com/serve/MUIFAKdSp-dSIRmHZy9kenj-AG9udCtS-2-gp-cjR0MwsfWOBiHeo6xUGwks_wXgMA7AGTrjhgSn5bIxWDCOcrRQgQKLPtPYh7W5TL9ZMuMKBAnnG7OIN4y91DcxF47fSWJ7-lFUidKdOgifAv4SOjZ_QTadZ4fSnOx0K_yXxuzDL07_k0L6kJa_xPMJW-GkKl1RiNYfAMHZ8nnFpA==";
+// Bloc capture email — POST same-origin vers la Pages Function /api/subscribe,
+// qui ajoute le contact à l'audience Resend « KOVLI - Newsletter ».
+// Same-origin : app.js lit la réponse et distingue succès et échec.
+const SUBSCRIBE_ENDPOINT = "/api/subscribe";
 
 function renderCapture(content) {
   const c = content.capture;
@@ -282,16 +282,16 @@ function renderCapture(content) {
       <h2 class="capture-title">${escapeHtml(c.title)}</h2>
       <p class="capture-subtitle">${escapeHtml(c.subtitle)}</p>
 
-      <!-- EMAIL_FORM_EMBED : formulaire Brevo (liste Kovli, double opt-in) -->
-      <form class="capture-form" id="capture-form" method="POST" action="${BREVO_FORM_ACTION}">
+      <!-- EMAIL_FORM_EMBED : Cloudflare Pages Function -> audience Resend "KOVLI - Newsletter" -->
+      <form class="capture-form" id="capture-form" method="POST" action="${SUBSCRIBE_ENDPOINT}">
         <input class="capture-input" type="email" name="EMAIL" inputmode="email" autocomplete="email"
           placeholder="${escapeHtml(c.placeholder)}" aria-label="${escapeHtml(c.placeholder)}" required />
         <button class="button button-primary capture-button" type="submit">${escapeHtml(c.button)}</button>
         <input class="capture-hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="locale" value="${content.meta.lang}" />
-        <input type="hidden" name="html_type" value="simple" />
       </form>
       <p class="capture-success" data-capture-success hidden>${escapeHtml(c.success)}</p>
+      <p class="capture-error" data-capture-error hidden>${escapeHtml(c.error)}</p>
       <p class="capture-note">${escapeHtml(c.note)}</p>
     </div>
   `;

@@ -33,6 +33,7 @@ export default {
     "scroll": "Scroller"
   },
   "capture": {
+    "error": "Impossible de t'inscrire pour le moment. Réessaie dans un instant.",
     "kicker": "Transmission nocturne",
     "title": "Reste dans la nuit.",
     "subtitle": "Laisse ton email. Ce qui vient passera par là.",

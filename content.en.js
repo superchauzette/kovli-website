@@ -33,6 +33,7 @@ export default {
     "scroll": "Scroll to story"
   },
   "capture": {
+    "error": "Could not sign you up right now. Please try again in a moment.",
     "kicker": "Night transmission",
     "title": "Stay in the night.",
     "subtitle": "Leave your email. Whatever comes next passes through here.",
